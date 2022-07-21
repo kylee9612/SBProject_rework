@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+.qaboard {
+	width: 100%;
+}
+
+.qaboard .label_wrap {
+	display: flex;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+	padding: 16px;
+	font-weight: 600;
+}
+
+.qaboard .label_wrap label {
+	
+}
+
+.no {
+	text-align: center;
+	width: 10%;
+}
+
+.title {
+	text-align: left;
+	width: 60%;
+}
+
+.user_id {
+	text-align: center;
+	width: 15%;
+}
+
+.write_date {
+	text-align: center;
+}
+
+.answer_compl {
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 14px;
+	color: #d93e30;
+}
+
+.write_date {
+	width: 15%;
+}
+
+.qaboard ul li {
+	display: flex;
+	cursor: pointer;
+	padding: 16px;
+	white-space: nowrap;
+}
+
+.page_number_wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.page_number {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.answer {
+	font-size:.8em;
+	opacity: .6;
+	justify-content: right;
+	background-color: #eee;
+}
+.answer+.answer {
+	border-top: 1px solid #888;
+}
+
+.answer .title {
+	width: 60%;
+}
+
+.answer .user_id {
+	width: 15%;
+}
+
+.answer .write_date {
+	width: 15%;
+}
+
+.a_tit {
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.pre_next_wrap {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pre_next_wrap>* {
+	padding: 12px;
+}
+
+.pre, .next {
+	cursor: pointer;
+}
+
+.write_btn {
+	display:block;
+	margin-left:auto;
+	margin-top: 20px;
+	border: 1px solid #ddd;
+	padding: 8px 20px;
+	border-radius: 16px;
+	cursor: pointer;
+}
+
+/* qaboard write form */
+.qaboard_write>* {
+	display: block;
+}
+
+.qaboard_write *:focus {
+	outline: 0;
+}
+
+.write_title {
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.write_title label {
+	margin-right: 24px;
+	font-size: 1.2em;
+}
+
+.write_title input {
+	flex-grow: 1;
+	border: 1px solid #ddd;
+	padding: 8px 20px;
+}
+
+.qaboard_write textarea {
+	border: 1px solid #ddd;
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.qaboard_write input[type="submit"] {
+	margin-left: auto;
+	margin-top: 20px;
+	border: 1px solid #ddd;
+	padding: 8px 20px;
+	border-radius: 16px;
+	cursor: pointer;
+}
+
+/* qaboard view */
+.qaview_wrap h4{
+	margin-bottom: 20px;
+	
+	font-size: 1.2em;
+	letter-spacing: -0.024em;
+	font-weight: 500;
+	
+	position: relative;
+}
+.qaview_wrap h4:after{
+	content: "";
+	display: block;
+	width: 90%;
+	height: 2px;
+	background-color:#eee;
+	
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+}
+.qaview_wrap textarea:focus{
+	outline:0;
+}
+.qaview_wrap h5 {
+	margin: 20px 0;
+	font-size: 1.14em;
+}
+.qaview_wrap h5 .tit, .qaview_wrap .q_id .tit, .qaview_wrap .q_written .tit {
+	margin-right: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: .8em;
+	opacity: .6;
+}
+.qaview_wrap textarea{
+	width:100%;
+	border: 0;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 20px;
+	box-sizing: border-box;
+	margin: 20px 0;
+	
+	font-size: 1.04em;
+	font-weight: 300;
+}
+
+.q_id, .q_written {
+	opacity: .6;
+}
+
+.view_btn_wrap {
+	text-align: right;
+	display: flex;
+    justify-content: right;
+}
+.view_btn_wrap > * + * {
+	margin-left: 10px;
+}
+.view_btn_wrap button, .view_btn_wrap input[type="submit"] {
+	margin-top: 20px;
+	border: 1px solid #ddd;
+	padding: 8px 20px;
+	border-radius: 16px;
+	cursor: pointer;
+}
+
+.answer_wrap {
+	margin-top: 60px;
+	background-color: #eee;
+	padding: 40px;
+}
+.answer_wrap h4 {
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+.qaview_wrap {
+	position: relative;
+}
+
+
+/* qaview button */
+#wrap .delete_btn {
+	opacity: 0;
+	margin: 0;
+	
+	width: 50%;
+	height: 100%;
+	border: 0;
+	background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+	
+	position: absolute;
+	
+	top: 50%;
+	right: 0;
+	
+	transform: translateY(-50%);
+	border-radius: 0;
+	
+	transition: all ease-in .24s;
+}
+#wrap .delete_btn:hover {
+	opacity: 1;
+}
+#wrap .modify_btn {
+	opacity: 0;
+	margin: 0;
+	
+	width: 50%;
+	height: 100%;
+	border: 0;
+	background: linear-gradient(-90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+	
+	position: absolute;
+	
+	top: 50%;
+	left: 0;
+	
+	transform: translateY(-50%);
+	border-radius: 0;
+	transition: all ease-in .24s;
+}
+#wrap .modify_btn:hover {
+	opacity: 1;
+}
+#wrap .answer_btn {
+	opacity: 0;
+	margin: 0;
+	
+	width: 100%;
+	height: 200px;
+	border: 0;
+	background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+	
+	position: absolute;
+	
+	bottom: -120px;
+	left: 0;
+	
+	border-radius: 0;
+	transition: all ease-in .24s;
+}
+#wrap .answer_btn:hover {
+	opacity: 1;
+}
+

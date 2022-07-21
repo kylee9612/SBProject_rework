@@ -1,0 +1,108 @@
+@charset "UTF-8";
+body{
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+header {
+}
+
+h1  {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+    color: #8eb308;
+    font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box;
+}
+#wrap{
+	display: grid;
+    position: relative;
+    place-items: center;
+    background-image: url(../resources/game/back.jpg);
+    background-size: 100%;
+	
+}
+
+.rank{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 500px;
+    background-color:rgb(83, 83, 83,0.25);
+    margin-left: 1400px;
+    margin-top: -1200px;
+    font-size: 30px;
+}
+
+
+
+.map{
+    display: flex;
+    flex-wrap: wrap;
+    width: 840px;
+    height: 840px;
+    background-color: rgb(255,255,255);
+    background-repeat: 1px;
+}
+
+.snake{
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+    background-color:#EDAA7D;
+}
+.snakeHead{
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+    background-color:#E48E58;
+}
+.block{
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+    background-color:#A8C879;
+}
+.item{
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+    background-color:#ADA759;
+}
+.gameOver{
+    width: 840px;
+    height: 840px;
+    background-image: url(../resources/game/gameover.png);
+    background-size: 100%;
+}
+.gameWin{
+    display: flex;
+    width: 840px;
+    height: 840px;
+    background-image: url(../resources/game/win.jpg);
+    background-size: 100%;
+}
+.reset{
+    background: rgb(103, 156, 255, 0.3);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif Mono, monospace;
+    margin-left: 5px;
+    font-size: 30px;
+}
+
+.rankBoard{
+    background-color:rgb(83, 83, 83,0.0);
+    width: 350px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}

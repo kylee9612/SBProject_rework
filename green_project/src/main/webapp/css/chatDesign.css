@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+
+.liveChatDiv{
+	position: relative;
+	top:40px;
+	left:1400px; 
+		
+}
+#iframeLocal {
+    position: fixed;
+    right: 85px;
+    bottom: 140px;
+}
+#liveChatBn{
+	position: fixed;
+	top: 760px;
+	right:30px;
+	border: none;
+	background-color: transparent;
+}
+

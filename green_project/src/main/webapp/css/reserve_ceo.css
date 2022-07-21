@@ -1,0 +1,59 @@
+.wrap {
+
+		 text-align: center;
+         width: 2200px;
+        }
+        /* wrap */
+        .tit_wrap, .item_wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .room_name {
+            margin-left :10px;
+        	margin: 10px;
+            width: 8%;
+        }
+        .code {
+        margin: 10px;
+            width: 8%;
+        }
+        .viewCut {
+        margin: 10px;
+            width: 8%;
+        }
+        .likeCut {
+        margin: 10px;
+            width: 8%;
+        }
+        .category{
+        margin: 10px;
+            width: 10%;
+        }
+        .price {
+        margin: 10px;
+            width: 8%;
+        }
+        .del{
+        margin: 10px;
+            width: 8%;
+        }
+        .del a {
+            display: block;
+        }
+
+        .tit_wrap label {
+            font-weight: 600;
+        }
+        .tit_wrap{
+        text-align: center;
+          background-color : orange;
+    border: 1px solid rgb(0, 0, 0);
+}
+#reservation_list{
+	 border: 1px solid rgb(0, 0, 0);
+}
+.item_wrap{
+	text-align: center;
+	  border: 1px solid rgb(0, 0, 0);
+}

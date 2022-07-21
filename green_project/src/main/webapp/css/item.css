@@ -1,0 +1,81 @@
+.inwon{
+	width:100%;
+	border:2px solid #aaa;
+	border-radius:4px;
+	margin: 8px 0;
+	outline: none;
+	padding:8px;
+	box-sizing: border-box;
+	transition:.3s;
+}
+.inwon:focus{
+	border-color:dodgerBlue;
+	box-shadow:0 0 8px 0 dodgetBlue;
+}
+
+/*
+.date{
+	width:100%;
+	border:2px solid #aaa;
+	border-radius:4px;
+	margin: 8px 0;
+	outline: none;
+	padding:8px;
+	box-sizing: border-box;
+	transition:.3s;
+}
+*/
+.date:focus{
+	border-color:dodgerBlue;
+	box-shadow:0 0 8px 0 dodgetBlue;
+}
+/*
+.input{
+	width:100%;
+	border:2px solid #aaa;
+	border-radius:4px;
+	margin: 8px 0;
+	outline: none;
+	padding:8px;
+	box-sizing: border-box;
+	transition:.3s;
+}
+*/
+.input:focus{
+	border-color:dodgerBlue;
+	box-shadow:0 0 8px 0 dodgetBlue;
+}
+/*
+.select{
+	width:100%;
+	border:2px solid #aaa;
+	border-radius:4px;
+	margin: 8px 0;
+	outline: none;
+	padding:8px;
+	box-sizing: border-box;
+	transition:.3s;
+}
+.select:focus{
+	border-color:dodgerBlue;
+	box-shadow:0 0 8px 0 dodgetBlue;
+}
+button {
+    margin: 20px;
+}
+*/
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.w-btn-red {
+    background-color: #ffffff;
+    color: #000000;
+}

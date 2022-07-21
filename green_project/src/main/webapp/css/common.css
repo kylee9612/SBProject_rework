@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* main & sub header */
+header {
+}
+header h1 a {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+}
+header .top_box nav ul {
+    display: flex;
+    justify-content: center;
+    font-size: .9em;
+}
+header .top_box nav ul li a {
+    display: block;
+    padding: 4px 28px;
+}
+
+header .normal_top h1 a {
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+    color: #8eb308;
+}
+header .top_box {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+header .normal_top {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    color: #444;
+    z-index: 5;
+}
+
+
+/* footer */
+footer {
+    background-color: #333;
+}
+.footer_wrap {
+    display: grid;
+
+    max-width: 1210px;
+    margin: 0 auto;
+    padding: 50px 0;
+    color: rgba(255,255,255,.7);
+    
+    grid-template-rows: 30% 70%;
+    grid-template-areas:
+        "logo f_menu"
+        "logo copyright"
+    ;
+}
+.footer_wrap h2 {
+    grid-area: logo;
+}
+.footer_wrap h2 a{
+    font-family: 'Lobster', cursive;
+    font-size: 28px;
+}
+.footer_menu {
+    grid-area: f_menu;
+}
+.footer_menu ul {
+    display: flex;
+}
+.footer_menu ul li {
+    flex-grow: 1;
+}
+.footer_menu ul li a {
+    display: block;
+}
+.copyright {
+	opacity: .4;
+    margin-top: 20px;
+    grid-area: copyright;
+    font-size: .9em;
+}
+
+.mem_wrap {
+	border-top:1px solid rgba(255,255,255,.2);
+	max-width: 1210px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.mem_wrap ul {
+	display: flex;
+	color: rgba(255,255,255,.5);
+	font-size: .8em;
+	font-weight: 400;
+}
+.mem_wrap ul * {
+	color: inherit;
+}
+.mem_wrap ul li {
+	width:20%;
+}
+.mem_wrap .mem_name {
+	border-left:2px solid rgba(255,255,255,.5);
+	margin-bottom:6px;
+}
+.mem_wrap ul li > * {
+	padding-left: 20px;
+}
+
+/* contents common css */
+#wrap {
+	max-width: 1210px;
+	min-height: 80vh;
+	margin:0 auto;
+	padding: 60px 0;
+}
+
+#wrap h3 {
+	margin-bottom: 100px;
+	font-weight: 500;
+	text-align: center;
+	font-size: 2.2em;
+	letter-spacing: -0.024em;
+}
+
+.topBtn {
+	border:0;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	color:#fff;
+	font-size: .8em;
+	background-color: #8eb308;
+	border-radius: 50%;
+	
+	position: fixed;
+	bottom: 180px;
+	right: 50px;
+	
+	cursor: pointer;
+
+}

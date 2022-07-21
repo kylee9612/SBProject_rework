@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+.wrap{
+	display : flex;
+	flex-wrap : wrap;
+	min-height : 720px;
+}
+
+#newly_question{
+	width : 500px;
+	height : 320px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: 5% 4% 5% 4%;
+	border : 1px solid #eee;
+}
+
+#newly_question ::-webkit-scrollbar{
+	border-radius : 20px;
+}
+
+#monthly_reservation{
+	width : 500px;
+	height : 320px;
+	margin: 5% 4% 5% 4%;
+	border : 1px solid #eee;
+}
+
+#user_list{
+	width: 100%;
+    height: 320px;
+    overflow-y : scroll;
+    overflow-x: hidden;
+    margin: 5% 4% 5% 4%;
+    border : 1px solid #eee;
+}
+
+.scroll_theme::-webkit-scrollbar{
+	width : 5px;
+}
+.scroll_theme::-webkit-scrollbar-thumb{
+	background-color : darkgrey;
+	border-radius : 10px;
+	box-shadow : black;
+}
+.scroll_theme::-webkit-scrollbar-track{
+	border-radius : 10px;
+}
+
+.label_wrap {
+	display: flex;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+	padding: 16px;
+	font-weight: 600;
+}
+
+.month{
+	display : flex;	
+	text-align : center;
+	width : 30%;
+}
+
+.con{
+	text-align : center;
+	width : 40%;
+}
+
+.total_revenue{
+	text-align : center;
+	width : 40%;
+}
+
+.id{
+	text-align : center;
+	width : 30%;
+}
+.email{
+	text-align : center;
+	width : 40%;
+}
+
+.total_reserve{
+	text-align : center;
+	width : 10%;
+}
+
+.reserve_count{
+	text-align : center;
+	width : 10%;
+}
+
+.auth{
+	text-align : center;
+	width : 20%
+}
+
+.user_auth{
+	text-align : center;
+	width : 20%;
+}
+
+.current_board{
+	display : flex;
+	padding: 16px;
+    white-space: nowrap;
+}
+
+.user_list{
+	display : flex;
+	cursor: pointer;
+    padding: 16px;
+    white-space: nowrap;
+    
+}
+
+#logo_text{
+	width: 20%;
+	margin: 5% 4% 5% 4%;
+	text-align : center;
+}
+
+.text_logo{
+	font-family: 'Lobster', cursive;
+    font-size: 70px;
+    color: #D3EADD;
+}
+
+.month_change{
+	cursor : pointer;
+	width : 15px;
+	background-color : #999999;
+	color : white;
+	margin : 0 5px 0 5px;
+	transition : 0.4s;
+	border-radius : 6px;
+}
+
+.month_change:hover{
+	background-color : #bab8b8;
+	transition : 0.4s;
+}
+
+.title{
+	overflow : hidden;
+}

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+label{
+	text-align : center;
+}
+
+#reservation_list {
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: 5% 0% 5% 0%;
+	border: 1px solid #eee;
+}
+
+.content {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+	padding: 16px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.scroll_theme::-webkit-scrollbar {
+	width: 5px;
+}
+
+.scroll_theme::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	border-radius: 10px;
+	box-shadow: black;
+}
+
+.scroll_theme::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+.content ul li {
+	display: flex;
+	padding: 16px;
+	white-space: nowrap;
+}
+
+.reservationInfo {
+	height: 15%;
+	text-align: center;
+}
+
+.check_date{
+	text-align : center;
+	width : 15%;
+}
+
+.day {
+	width: 15%;
+	text-align: center;
+}
+
+.label_wrap {
+	text-align: center;
+}
+
+.user_id {
+	text-align: center;
+	width: 15%;
+}
+
+.room_name {
+	text-align: center;
+	width: 15%;
+}
+.price {
+	text-align: center;
+	width: 10%;
+}
+.cancel {
+	text-align : center;
+	width : 10%;
+}
+
+.cancel_img{
+	text-align : center;
+	width : 2%;
+	margin-left: 4%;
+	cursor : pointer;
+}
