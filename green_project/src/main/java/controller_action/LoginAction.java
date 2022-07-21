@@ -15,14 +15,15 @@ public class LoginAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserDAO dao = UserDAO.getInstance();
-		PrintWriter out = response.getWriter();
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 	    //로그인 확인용 유저 dto생성
 
 		String id=request.getParameter("id");
 		String password=request.getParameter("password");
 		String url = "/green_project/index";
 		if(dao.logIn(id, password)) {
-
+			url = "/green_project/index.jsp";
 		}
 		else {
 			url = "/green_project/login/login.jsp?success=no";

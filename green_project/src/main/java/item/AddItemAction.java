@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.Action;
 import controller.ItemDAO;
 
-public class addItemAction implements Action{
+public class AddItemAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,7 +42,6 @@ public class addItemAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.getRequestDispatcher(url).forward(request, response);
-		
 	}
 
 }

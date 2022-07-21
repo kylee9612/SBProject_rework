@@ -13,14 +13,14 @@ import controller_action.LogoutAction;
 import controller_action.MonthAddAction;
 import controller_action.MonthDecAction;
 import controller_action.PwFindAction;
-import item.addItemAction;
-import item.reservationAction;
+import item.AddItemAction;
+import item.ReservationAction;
 import controller_action.WriteQuestionAction;
-import controller_action.delNoticeAction;
-import controller_action.likeAction;
-import controller_action.updateAnnouncementAction;
-import item.roomInfoAction;
-import item.roomListAction;
+import controller_action.DelNoticeAction;
+import controller_action.LikeAction;
+import controller_action.UpdateAnnouncementAction;
+import item.RoomInfoAction;
+import item.RoomListAction;
 
 /***********************************************************************************/
 
@@ -45,17 +45,17 @@ public class ActionFactory {
 		else if(command.equals("login"))
 			action = new LoginAction();
 		else if(command.equals("roomList"))
-			action = new roomListAction();
+			action = new RoomListAction();
 		else if(command.equals("roomInfo"))
-			action = new roomInfoAction();
+			action = new RoomInfoAction();
 		else if(command.equals("like"))
-			action = new likeAction();
+			action = new LikeAction();
 		else if(command.equals("reservation"))
-			action = new reservationAction();
+			action = new ReservationAction();
 		else if(command.equals("reservation"))
-			action = new reservationAction();
+			action = new ReservationAction();
 		else if(command.equals("addItem"))
-			action = new addItemAction();
+			action = new AddItemAction();
 		else if(command.equals("writeQuestion"))
 			action = new WriteQuestionAction();
 		else if(command.equals("updateQuestion"))
@@ -75,9 +75,9 @@ public class ActionFactory {
 		else if(command.equals("deleteUser"))
 			action = new DeleteUserAction();
 		else if(command.equals("delNotice"))
-			action = new delNoticeAction();
+			action = new DelNoticeAction();
 		else if(command.equals("updateNotice"))
-			action = new updateAnnouncementAction();
+			action = new UpdateAnnouncementAction();
 		else if(command.equals("monthdec"))
 			action = new MonthDecAction();
 		else if(command.equals("monthadd"))

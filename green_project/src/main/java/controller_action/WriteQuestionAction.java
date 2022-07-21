@@ -38,7 +38,7 @@ public class WriteQuestionAction implements Action {
 		
 		Date date = new Date(System.currentTimeMillis());
 		
-		System.out.println(bdao.addBoard(type, id, title, contents, date, no));
+		bdao.addBoard(type, id, title, contents, date, no);
 		
 		String url = "./qaboard";
 

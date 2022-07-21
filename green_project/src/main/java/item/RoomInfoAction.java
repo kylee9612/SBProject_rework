@@ -10,7 +10,7 @@ import controller.Action;
 import controller.ItemDAO;
 import model.ItemDTO;
 
-public class roomInfoAction implements Action{
+public class RoomInfoAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -10,7 +10,7 @@ import controller.Action;
 import controller.ItemDAO;
 import controller.LikeListDAO;
 
-public class likeAction implements Action{
+public class LikeAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

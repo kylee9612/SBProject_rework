@@ -275,7 +275,7 @@ public class DBManager {
 			return null;
 		}
 	}
-	//park 오류나면 바로 지우겠습니다...
+	
 	public ArrayList<ItemDTO> getItemLists(String id) {
 		ArrayList<ItemDTO> lists = new ArrayList<ItemDTO>();
 		String sql = String.format("select * from item where id = '%s'",id);
@@ -322,10 +322,6 @@ public class DBManager {
 		try {
 
 			getConnection();
-			pstmt = conn.prepareStatement(sql);
-			System.out.println("DBM 겟아이템 받은 주소 : " + address);
-			System.out.println(address);
-
 			ResultSet tempRs = executeSelect("Item List", sql);
 			while (tempRs.next()) {
 				list.add(getItem(tempRs.getInt(1)));
@@ -563,7 +559,7 @@ public class DBManager {
 			return null;
 		}
 	} 
-	//   park 오류나면 바로 지우겠습니다...
+	
 	public ArrayList<ReservationDTO> getReservationLists(String id) {
 		ArrayList<ReservationDTO> lists = new ArrayList<>();
 		String sql = String.format("select * from reservation where id ='"+id+"'");
@@ -590,7 +586,7 @@ public class DBManager {
 			closeConnection();
 			return null;
 		}
-	}//
+	}
 
 	public int getReservationCount(String id) {
 		String sql = String.format("select count(*) from reservation where id = '%s'", id);
@@ -874,7 +870,6 @@ public class DBManager {
 		String forSQL = type.toLowerCase();
 		String sql = String.format("select * from %s order by %s %s limit %d", forSQL, standard, ascOrDesc, limit);
 		ArrayList<Board> list = new ArrayList<Board>();
-		System.out.println(sql);
 		try {
 			rs = executeSelect(type, sql);
 			while (rs.next()) {
@@ -910,13 +905,9 @@ public class DBManager {
 	}
 	
 	
-//	Type : Announcement  게시글 가져오기
+	//	Type : Announcement  게시글 가져오기
 	public ArrayList<Board> getBoardList(String type, int startNum, int endNum) {
-		String forSQL = type.toLowerCase();
-		System.out.println(startNum);
-		System.out.println(endNum);
 		String sql=String.format("select * from announcement order by no desc limit %d,%d ",startNum,endNum);
-		//String sql = "select * from " + forSQL + " order by written desc";
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			rs = executeSelect(type, sql);
@@ -961,9 +952,9 @@ public class DBManager {
 				return count;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			return 0;
 		}
-		
 		return 0;
 	}
 	
@@ -1107,7 +1098,7 @@ public class DBManager {
 		String date = "";
 		if(mon < 10)
 			date+="0"+mon;
-		return year+"-"+mon+"01";
+		return year+"-"+date+"01";
 	}
 	
 	/***********************************************************************************/

@@ -20,7 +20,6 @@ public class IDFindAction implements Action {
 		String name = request.getParameter("name");
 		String mobile = request.getParameter("mobile");
 
-
 		String url = "/green_project/login/idFindview.jsp?result=" + dao.getUserId(name, mobile);
 
 		response.sendRedirect(url);

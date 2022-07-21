@@ -33,7 +33,6 @@ public class ItemDAO {
 		ArrayList<ItemDTO> itemList = dbm.getItemList(address);
 		return itemList;
 	}
-	//park 오류나면 바로 지우겠습니다
 	public ArrayList<ItemDTO> getItemLists(String id){
 		ArrayList<ItemDTO> itemLists = dbm.getItemLists(id);
 		return itemLists;
@@ -49,9 +48,7 @@ public class ItemDAO {
 	}
 	
 	public boolean uploadItem(String id, String name, String address, String category, int price, String thumbnail, String contents, int max_people) {
-		System.out.println("여기냐?1");
 		ItemDTO item = new ItemDTO(id, name, address,dbm.getRanCode(), 0, 0, category, price, thumbnail, contents,0, max_people);
-		System.out.println("여기냐?2");
 		return dbm.addItem(item);
 	}
 	

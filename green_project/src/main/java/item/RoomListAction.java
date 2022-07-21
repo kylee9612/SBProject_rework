@@ -11,7 +11,7 @@ import controller.Action;
 import controller.ItemDAO;
 import model.ItemDTO;
 
-public class roomListAction implements Action {
+public class RoomListAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

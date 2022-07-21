@@ -29,7 +29,6 @@ public class ReservationDAO {
 	public ArrayList<ReservationDTO> getList(String today){
 		return dbm.getReservationList(today);
 	}
-	//park 오류나면 바로 지우겠습니다...
 	public ArrayList<ReservationDTO> getLists(String id){
 		return dbm.getReservationLists(id);
 	}
@@ -37,7 +36,6 @@ public class ReservationDAO {
 	public int reservationCount(String id) {
 		return dbm.getReservationCount(id);
 	}
-	//park 오류나면 바로 지우겠습니다...
 	public boolean deleteReservation(String id, int code) {
 		ReservationDTO reservation= dbm.getReservation(id, code);
 		if(checkValidId(id, reservation)){
@@ -54,8 +52,6 @@ public class ReservationDAO {
 	public boolean deleteReservation(int reserve_code) {
 		return dbm.deleteReservation(reserve_code);
 	}
-	
-	//겟 리뷰
 	public ArrayList<ReservationDTO> getReviewList(int code){
 		return dbm.getReviewList(code);
 	}

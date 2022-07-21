@@ -17,12 +17,8 @@ public class DeleteReservationAction implements Action{
 		int reservation_code = Integer.parseInt(request.getParameter("reserve_code"));
 		ReservationDAO rdao = ReservationDAO.getInstance();
 		UserDAO dao = UserDAO.getInstance();
-		if(rdao.deleteReservation(reservation_code)) {
-			System.out.println("Successfully Deleted Reservation");
-		}
-		else {
-			System.err.println("Deleting Failed");
-		}
+		
+		rdao.deleteReservation(reservation_code);
 		String url = "";
 		if(dao.getAuth(dao.getLog()) == 0) {
 			url = "/green_project/admin/admin_index.jsp";

@@ -12,7 +12,7 @@ import controller.Action;
 import controller.ItemDAO;
 import controller.ReservationDAO;
 
-public class reservationAction implements Action{
+public class ReservationAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

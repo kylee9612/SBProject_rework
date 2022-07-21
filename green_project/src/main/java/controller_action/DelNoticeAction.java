@@ -1,28 +1,31 @@
-package item;
+package controller_action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import controller.ItemDAO;
+import controller.BoardDAO;
+import controller.DBManager;
+import model.Board;
 
-public class reservationAction implements Action{
+public class DelNoticeAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		int code = Integer.parseInt(request.getParameter("code"));
-		System.out.println("룸 예약 코드 : "+code);
-		String id = request.getParameter("id");
-		String url="item/reservation.jsp?code="+code;
+		
+		int no = Integer.parseInt(request.getParameter("no"));
+		DBManager dbm=new DBManager();
+		
+		dbm.deleteBoard("Announcement",no);
+		String url = "/notice";
 		
 		request.getRequestDispatcher(url).forward(request, response);
-//		System.out.println("아이템/룸리스트");
 	}
 
 }

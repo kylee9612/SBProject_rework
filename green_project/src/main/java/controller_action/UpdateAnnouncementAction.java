@@ -13,7 +13,7 @@ import controller.DBManager;
 import controller.UserDAO;
 import model.Board;
 
-public class updateAnnouncementAction implements Action {
+public class UpdateAnnouncementAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,8 +22,6 @@ public class updateAnnouncementAction implements Action {
 		contents = contents.replace("\r\n", "<br>");
 		System.out.println(title);
 		UserDAO udao = UserDAO.getInstance();
-		String id = udao.getLog();
-		DBManager dbm = new DBManager();
 		int no = Integer.parseInt(request.getParameter("no"));
 		String type="Announcement";
 		BoardDAO bdao = BoardDAO.getInstance();
