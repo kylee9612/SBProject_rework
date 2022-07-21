@@ -3,6 +3,8 @@ package controller;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import model.ReservationDTO;
+
 public class ReservationDAO {
 	/***********************************************************************************/
 
