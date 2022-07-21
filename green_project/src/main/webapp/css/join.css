@@ -102,3 +102,8 @@ button {
     background-color : #ef5f5f54;
     transition: .3s;
 }
+
+
+input[type="text"], input[type="password"], input[type="number"], input[type="email"]{
+	box-shadow : 1.5px 1.5px #d9d9d9;
+}

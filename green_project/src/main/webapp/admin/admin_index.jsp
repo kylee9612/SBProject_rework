@@ -11,9 +11,6 @@
 <link rel="stylesheet" href="/green_project/css/qaboard.css">
 <!DOCTYPE html>
 <%@ include file="/fix/sub_header.jsp"%>
-<head>
-<title>관리자 페이지</title>
-</head>
 	<%
 	/***********************************************************************************/
 
@@ -30,6 +27,9 @@
 	}
 	%>
 	<div class="wrap">
+	<script type="text/javascript">
+	document.title = "관리자 페이지";
+	</script>
 		<div class="qaboard scroll_theme" id="newly_question">
 			<div class="label_wrap">
 				<label class="no" for="no">no</label> <label class="title"
