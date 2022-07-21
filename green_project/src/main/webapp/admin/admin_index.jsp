@@ -1,11 +1,10 @@
-<%@page import="green_project.UserDTO"%>
-<%@page import="green_project.ReservationDTO"%>
+<%@page import="model.ReservationDTO"%>
 <%@page import="model.Board"%>
-<%@page import="green_project.QuestionDTO"%>
+<%@page import="model.QuestionDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.Date"%>
-<%@page import="green_project.UserDAO"%>
+<%@page import="controller.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/green_project/css/admin.css">

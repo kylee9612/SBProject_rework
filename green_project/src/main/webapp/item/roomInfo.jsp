@@ -1,9 +1,9 @@
-<%@page import="green_project.ReservationDTO"%>
-<%@page import="green_project.DBManager"%>
-<%@page import="green_project.LikeListDTO"%>
+<%@page import="model.ReservationDTO"%>
+<%@page import="controller.DBManager"%>
+<%@page import="model.LikeListDTO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="green_project.ItemDTO"%>
-<%@page import="green_project.ItemDAO"%>
+<%@page import="model.ItemDTO"%>
+<%@page import="controller.ItemDAO"%>
 <%@page import="java.util.Vector"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

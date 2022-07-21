@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.UserDAO;
-import green_project.UserDTO;
+import controller.UserDAO;
+import model.UserDTO;
 
 public class JoinAction implements Action{
 

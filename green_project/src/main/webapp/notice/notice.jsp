@@ -1,11 +1,11 @@
-<%@page import="green_project.DBManager"%>
-<%@page import="green_project.UserDTO"%>
-<%@page import="green_project.AnnouncementDTO"%>
-<%@page import="green_project.UserDAO"%>
+<%@page import="controller.DBManager"%>
+<%@page import="model.UserDTO"%>
+<%@page import="model.AnnouncementDTO"%>
+<%@page import="controller.UserDAO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="model.Board"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="green_project.BoardDAO"%>
+<%@page import="controller.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/fix/sub_header.jsp" %>
@@ -65,7 +65,6 @@
             
            <ul>
             <%
-            // 
            	for (int i = 0; i < noticeList.size(); i++) {
            		AnnouncementDTO notice= (AnnouncementDTO)noticeList.get(i);
            		int no = notice.getNo();   

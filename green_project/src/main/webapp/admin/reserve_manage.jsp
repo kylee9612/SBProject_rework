@@ -1,5 +1,5 @@
-<%@page import="green_project.ItemDTO"%>
-<%@page import="green_project.ReservationDTO"%>
+<%@page import="model.ItemDTO"%>
+<%@page import="model.ReservationDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

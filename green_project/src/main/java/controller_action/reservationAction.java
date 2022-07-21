@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.ItemDAO;
-import green_project.ReservationDAO;
+import controller.ItemDAO;
+import controller.ReservationDAO;
 
 public class reservationAction implements Action{
 

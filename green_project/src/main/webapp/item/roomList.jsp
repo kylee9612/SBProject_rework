@@ -1,7 +1,7 @@
-<%@page import="green_project.LikeListDTO"%>
+<%@page import="model.LikeListDTO"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="green_project.ItemDTO"%>
-<%@ page import="green_project.ItemDAO"%>
+<%@ page import="model.ItemDTO"%>
+<%@ page import="controller.ItemDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/fix/sub_header.jsp"%>

@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.AnswerDTO;
-import green_project.BoardDAO;
+import controller.BoardDAO;
+import model.AnswerDTO;
 import model.Board;
 
 public class UpdateQuestionAction implements Action {
@@ -37,10 +37,8 @@ public class UpdateQuestionAction implements Action {
 			nextNo= ((AnswerDTO)newBoard).getCode();
 		}
 		
-//		String url="/qaboard";
 		String url="./qaboardView?no=" + nextNo;
 		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-
 }

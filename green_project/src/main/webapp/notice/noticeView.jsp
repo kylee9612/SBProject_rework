@@ -1,7 +1,7 @@
-<%@page import="green_project.DBManager"%>
-<%@page import="green_project.BoardDAO"%>
+<%@page import="controller.DBManager"%>
+<%@page import="controller.BoardDAO"%>
 <%@page import="model.Board"%>
-<%@page import="green_project.AnnouncementDTO"%>
+<%@page import="model.AnnouncementDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.ItemDAO;
-import green_project.LikeListDAO;
+import controller.ItemDAO;
+import controller.LikeListDAO;
 
 public class likeAction implements Action{
 
@@ -42,10 +42,9 @@ public class likeAction implements Action{
 			dao.minusLikeCount(code);
 			likeDAO.deleteLikeItem(log, code);
 		}
-//		String url="ServicesServlet";
+		
 		String url="item/roomInfo.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
-//		System.out.println("아이템/룸리스트");
 	}
 
 }

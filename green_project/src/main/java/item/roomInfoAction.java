@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.ItemDAO;
-import green_project.ItemDTO;
+import controller.ItemDAO;
+import model.ItemDTO;
 
 public class roomInfoAction implements Action{
 

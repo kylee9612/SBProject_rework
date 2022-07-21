@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.UserDAO;
-import green_project.UserDTO;
+import controller.UserDAO;
+import model.UserDTO;
 
 public class UpdateUserAction implements Action{
 
@@ -34,9 +34,7 @@ public class UpdateUserAction implements Action{
 		}else if(dao.getAuth(dao.getLog()) == 2) {
 			url = "/green_project/login/mypage.jsp";
 		}
-		
-		
-		
+
 		response.sendRedirect(url);
 	}
 }

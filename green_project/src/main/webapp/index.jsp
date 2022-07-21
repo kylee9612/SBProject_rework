@@ -1,12 +1,12 @@
-<%@page import="green_project.AnnouncementDTO"%>
+<%@page import="model.AnnouncementDTO"%>
 <%@page import="model.Board"%>
-<%@page import="green_project.LikeListDAO"%>
-<%@page import="green_project.ReservationDAO"%>
-<%@page import="green_project.BoardDAO"%>
-<%@page import="green_project.ItemDTO"%>
-<%@page import="green_project.ItemDAO"%>
+<%@page import="controller.LikeListDAO"%>
+<%@page import="controller.ReservationDAO"%>
+<%@page import="controller.BoardDAO"%>
+<%@page import="model.ItemDTO"%>
+<%@page import="controller.ItemDAO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="green_project.UserDAO"%>
+<%@page import="controller.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -66,7 +66,6 @@
 				<nav id="gnb">
 					<ul>
 						<li><a href="/green_project/roomList?city=전체&county=전체&id=<%=log%>">숙박예약</a></li>
-						<li><a href="/green_project/pointGames">포인트게임</a></li>
 						<li><a href="/green_project/qaboard/qaboard.jsp">고객센터</a></li>
 						<%
 						if (dao.getLog() != null) {
@@ -140,17 +139,6 @@
 			</div> 
 		</header>
 		<div id="container">
-			<div class="game_banner">
-				<a href="/green_project/pointGames">
-					<p class="bn_left">
-						재밌는 <span>게임</span>해서<br> <span>할인</span>받고 <span>여행</span>가자!
-					</p>
-					<p class="bn_right">
-						매일매일 경쟁하고<br> 내 실력으로 여행도 즐기는<br> SB GAME <span
-							class="game_banner_btn">바로가기</span>
-					</p>
-				</a>
-			</div>
 			<nav class="direct_menu">
 				<ul>
 					<%
@@ -164,7 +152,6 @@
 				<%}%>	
 					<li><a href="/green_project/item/roomList.jsp">숙박리스트<img src="resources/arrow_btn.png"
 							alt="숙박리스트 이동하기"></a></li>
-					<li><a href="/green_project/pointGames">포인트게임<img src="resources/arrow_btn.png" alt="포인트게임 이동하기"></a></li>
 					<li><a href="/green_project/qaboard/qaboard.jsp">고객센터<img src="resources/arrow_btn.png" alt="고객센터 이동하기"></a></li>
 				</ul>
 			</nav>

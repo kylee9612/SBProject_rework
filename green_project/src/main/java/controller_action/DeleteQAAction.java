@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.BoardDAO;
+import controller.BoardDAO;
 import model.Board;
 
 public class DeleteQAAction implements Action {

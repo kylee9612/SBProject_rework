@@ -1,4 +1,4 @@
-<%@page import="green_project.UserDTO"%>
+<%@page import="model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/fix/sub_header.jsp" %>

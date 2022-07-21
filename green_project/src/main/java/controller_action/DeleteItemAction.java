@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.ItemDAO;
-import green_project.UserDAO;
+import controller.ItemDAO;
+import controller.UserDAO;
 
 public class DeleteItemAction implements Action {
 
@@ -27,7 +27,6 @@ public class DeleteItemAction implements Action {
 		}else {
 			url = "/green_project/login/ceoPage.jsp";
 		}
-		
 
 		response.sendRedirect(url);
 	}

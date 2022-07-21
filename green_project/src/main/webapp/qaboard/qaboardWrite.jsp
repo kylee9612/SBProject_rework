@@ -1,5 +1,5 @@
 <%@page import="model.Board"%>
-<%@page import="green_project.QuestionDTO"%>
+<%@page import="model.QuestionDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/fix/sub_header.jsp" %>

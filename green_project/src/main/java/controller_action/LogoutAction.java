@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.UserDAO;
+import controller.UserDAO;
 
 public class LogoutAction implements Action{
 

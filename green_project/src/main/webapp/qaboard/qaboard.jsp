@@ -1,8 +1,8 @@
-<%@page import="green_project.AnswerDTO"%>
+<%@page import="model.AnswerDTO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="model.Board"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="green_project.QuestionDTO"%>
+<%@page import="model.QuestionDTO"%>
 <%@ include file="/fix/sub_header.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>

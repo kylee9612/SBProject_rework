@@ -13,8 +13,8 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import green_project.DBManager;
-import green_project.UserDAO;
+import controller.DBManager;
+import controller.UserDAO;
 
 
 //웹소켓 주소 설정

@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.BoardDAO;
-import green_project.DBManager;
+import controller.BoardDAO;
+import controller.DBManager;
 import model.Board;
 
 public class delNoticeAction implements Action {

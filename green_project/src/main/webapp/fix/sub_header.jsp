@@ -1,8 +1,8 @@
-<%@page import="green_project.LikeListDAO"%>
-<%@page import="green_project.ReservationDAO"%>
-<%@page import="green_project.BoardDAO"%>
-<%@page import="green_project.ItemDAO"%>
-<%@page import="green_project.UserDAO"%>
+<%@page import="controller.LikeListDAO"%>
+<%@page import="controller.ReservationDAO"%>
+<%@page import="controller.BoardDAO"%>
+<%@page import="controller.ItemDAO"%>
+<%@page import="controller.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%! UserDAO dao = UserDAO.getInstance(); %>
@@ -35,7 +35,6 @@ pageEncoding="UTF-8"%>
 			<nav id="gnb">
 				<ul>
                     <li><a href="/green_project/roomList?city=전체&county=전체&id=<%=log%>">숙박예약</a></li>
-						<li><a href="/green_project/pointGames">포인트게임</a></li>
 						<li><a href="/green_project/qaboard/qaboard.jsp">고객센터</a></li>
 						<%
 						if (dao.getLog() != null) {

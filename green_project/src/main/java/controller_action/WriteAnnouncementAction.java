@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
-import green_project.BoardDAO;
-import green_project.DBManager;
-import green_project.UserDAO;
+import controller.BoardDAO;
+import controller.DBManager;
+import controller.UserDAO;
 
 public class WriteAnnouncementAction implements Action {
 
@@ -20,10 +20,8 @@ public class WriteAnnouncementAction implements Action {
 		String contents = request.getParameter("contents");
 		contents = contents.replace("\r\n", "<br>");
 		
-		UserDAO udao = UserDAO.getInstance();
-		String id = udao.getLog();
-		DBManager dbm = new DBManager();
-//		int no = dbm.getBoardNo("Announcement");
+		UserDAO dao = UserDAO.getInstance();
+		String id = dao.getLog();
 		int no = 0;
 		
 		BoardDAO bdao = BoardDAO.getInstance();

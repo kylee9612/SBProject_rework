@@ -18,7 +18,6 @@ import item.reservationAction;
 import controller_action.WriteQuestionAction;
 import controller_action.delNoticeAction;
 import controller_action.likeAction;
-import controller_action.snakeRank;
 import controller_action.updateAnnouncementAction;
 import item.roomInfoAction;
 import item.roomListAction;
@@ -67,8 +66,6 @@ public class ActionFactory {
 			action = new LogoutAction();
 		else if(command.equals("updateUser"))
 			action = new UpdateUserAction();
-		else if(command.equals("snakeGame"))
-			action = new snakeRank();
 		else if(command.equals("Announcement"))
 			action = new WriteAnnouncementAction();
 		else if(command.equals("idFind"))

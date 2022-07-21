@@ -1,5 +1,5 @@
-<%@page import="green_project.AnswerDTO"%>
-<%@page import="green_project.QuestionDTO"%>
+<%@page import="model.AnswerDTO"%>
+<%@page import="model.QuestionDTO"%>
 <%@page import="model.Board"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Date"%>
