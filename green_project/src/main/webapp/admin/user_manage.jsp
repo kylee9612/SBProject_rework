@@ -1,14 +1,14 @@
 <%@page import="model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%@ include file="/fix/sub_header.jsp"%>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/green_project/css/join.css">
-<title>SB 유저 관리 페이지</title>
+<script type="text/javascript">
+	document.title = "유저 관리 페이지";
+	</script>
 </head>
-<body>
 	<%
 	String id = request.getParameter("id");
 	

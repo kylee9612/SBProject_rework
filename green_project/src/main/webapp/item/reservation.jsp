@@ -53,11 +53,6 @@
 			</form>
 		</div>
 
-
-
-
-
-
 		<div>
 			결제~
 			<button onclick="requestPay()">결제하기</button>

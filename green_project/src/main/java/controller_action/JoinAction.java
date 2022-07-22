@@ -38,9 +38,7 @@ public class JoinAction implements Action{
 	    System.out.println(id);
 	    
 		if(dao.addUser(user)){
-			//회원가입 성공
 			System.out.println("유저생성");
-			//login.jsp로 페이지 이동
 			if(sns == 1) {
 				dao.setLog(id);
 				url="/green_project/index.jsp";	
@@ -49,10 +47,7 @@ public class JoinAction implements Action{
 			}
 		}
 		else{
-			//중복으로 인한 회원가입 실패
-			//join.jsp
 			System.out.println("생성실패");
-			//요청에 대한 응답처리를 해주는 것.
 			url="/green_project/login/login.jsp";
 		}
 		

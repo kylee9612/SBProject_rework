@@ -107,3 +107,43 @@
 .item_subtext {
 	opacity: 5;
 }
+
+.item_rate{
+	text-align : left;
+}
+.pointer {
+	cursor: pointer;
+}
+
+.list li {
+	display: flex;
+	border-top: 1px solid #dadada;
+	border-bottom: 1px solid #dadada;
+	padding: 20px;
+}
+
+.heart_wrap{
+	width : 44px;
+}
+
+.list li+li {
+	border-top: 0;
+}
+
+.item_name {
+	font-size: 1.64em;
+	line-height: 1.6;
+	font-weight: 600;
+	letter-spacing: -0.05em;
+}
+.item_heart {
+	z-index: 5;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+}
+
+.bold_text{
+	font-weight : 600;
+}

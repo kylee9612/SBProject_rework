@@ -56,5 +56,9 @@ public class ReservationDAO {
 		return dbm.getReviewList(code);
 	}
 	
+	public boolean updateReview(int code, int rate) {
+		return dbm.updateReview(code,rate);
+	}
+	
 	/**********************************************************************************************/
 }

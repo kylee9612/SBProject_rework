@@ -13,14 +13,15 @@ import controller_action.LogoutAction;
 import controller_action.MonthAddAction;
 import controller_action.MonthDecAction;
 import controller_action.PwFindAction;
-import item.AddItemAction;
-import item.ReservationAction;
+import controller_action.ReservationAction;
+import controller_action.ReviewAction;
+import controller_action.RoomInfoAction;
+import controller_action.RoomListAction;
 import controller_action.WriteQuestionAction;
+import controller_action.AddItemAction;
 import controller_action.DelNoticeAction;
 import controller_action.LikeAction;
 import controller_action.UpdateAnnouncementAction;
-import item.RoomInfoAction;
-import item.RoomListAction;
 
 /***********************************************************************************/
 
@@ -86,6 +87,8 @@ public class ActionFactory {
 			action = new DeleteItemAction();
 		else if(command.equals("deleteReservation"))
 			action = new DeleteReservationAction();
+		else if(command.equals("review"))
+			action = new ReviewAction();
   
 		
 		return action;

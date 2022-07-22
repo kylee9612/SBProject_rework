@@ -13,6 +13,7 @@
 	overflow-x: hidden;
 	margin: 5% 4% 5% 4%;
 	border : 1px solid #eee;
+	box-shadow : 1px 1px 10px #9b8f8f;
 }
 
 #newly_question ::-webkit-scrollbar{
@@ -24,6 +25,7 @@
 	height : 320px;
 	margin: 5% 4% 5% 4%;
 	border : 1px solid #eee;
+	box-shadow : 1px 1px 10px #9b8f8f;
 }
 
 #user_list{
@@ -33,6 +35,7 @@
     overflow-x: hidden;
     margin: 5% 4% 5% 4%;
     border : 1px solid #eee;
+    box-shadow : 1px 1px 10px #9b8f8f;
 }
 
 .scroll_theme::-webkit-scrollbar{

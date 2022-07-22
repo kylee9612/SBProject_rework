@@ -1,4 +1,4 @@
-package item;
+package controller_action;
 
 import java.io.IOException;
 
@@ -24,16 +24,7 @@ public class AddItemAction implements Action{
 		String id = request.getParameter("id");
 		int price = Integer.parseInt(request.getParameter("price"));
 		int max_people = Integer.parseInt(request.getParameter("max_people"));
-		
-		
-		System.out.println(address);
-		System.out.println(name);
-		System.out.println(id);
-		System.out.println(category);
-		System.out.println(thumbnail);
-		System.out.println(contents);
-		System.out.println(price);
-		System.out.println(max_people);
+
 		String url="index";
 		
 		ItemDAO dao = ItemDAO.getInstance();

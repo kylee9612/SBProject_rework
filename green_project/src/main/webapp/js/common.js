@@ -14,5 +14,5 @@ $(window).scroll(function() {
 });
 
 $('.topBtn').click(function() {
-	$('html, body').animate({scrollTop:0}, 500);
+	$('html, body').animate({ scrollTop: 0 }, 500);
 });

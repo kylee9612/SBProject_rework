@@ -1,7 +1,6 @@
-package item;
+package controller_action;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,28 +10,27 @@ import controller.Action;
 import controller.ItemDAO;
 import model.ItemDTO;
 
-public class RoomListAction implements Action {
+public class RoomInfoAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		int code = Integer.parseInt(request.getParameter("code"));
 		String city =request.getParameter("city");
 		String county = request.getParameter("county");
-		String address = city+"/"+county;
+		String address = request.getParameter("address");
+		System.out.println("룸인포액션 코드 : "+code);
+		System.out.println("룸인포액션 city : "+city);
+		System.out.println("룸인포액션 county : "+county);
+		System.out.println("룸인포액션 address : "+address);
 		
-		if(city==null && county==null)
-			address="전체/전체";
-		if(request.getParameter("address")!=null)
-			address=request.getParameter("address");
-		
-		System.out.println("룸리스트 액션 address : "+address);
-		String id = request.getParameter("id");
-		String like = request.getParameter("like");
 		ItemDAO dao = ItemDAO.getInstance();
-		String url="item/roomList.jsp?city="+city+"&county="+county+"&address="+address+"&id="+id+"&like="+like;
+		dao.addViewCount(code);
+		
+		String url="item/roomInfo.jsp?city="+city+"&county="+county+"&code="+code+"&address="+address;
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.getRequestDispatcher(url).forward(request, response);
+		System.out.println("아이템/룸인포액션 끝");
 	}
 
 }

@@ -42,7 +42,6 @@ pageEncoding="UTF-8"%>
 						<li><a href="/green_project/ServicesServlet?command=logout">로그아웃</a></li>
 
 						<%
-						System.out.println(dao.getAuth(dao.getLog()));
 						if (dao.getAuth(dao.getLog()) == 1){ %>
 						<li><a href="/green_project/login/ceoPage.jsp">마이페이지</a></li>
 						<%}else if (dao.getAuth(dao.getLog()) == 2){%>

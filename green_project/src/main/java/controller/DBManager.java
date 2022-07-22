@@ -464,11 +464,12 @@ public class DBManager {
 		return executeDeletion("Reservation", sql);
 	}
 
-	public boolean updateReview(ReservationDTO rsrv) {
-		String sql = String.format("Update reservation set review = %d", rsrv.getReview());
+	public boolean updateReview(int code,int review) {
+		String sql = String.format("Update reservation set review = %d where reserve_code = %d",review,code);
 		executeAddtion("Reservation", sql);
-		float rate = getRate(rsrv.getCode());
-		String updateSQL = String.format("Update item set rate = %.2f", rate);
+		ReservationDTO rsrv = getReservation(code);
+		float rate = getRate(code);
+		String updateSQL = String.format("update item set rate = %.2f where code = %d", rate, rsrv.getCode());
 		return executeUpdate("Rate ", updateSQL);
 	}
 
@@ -487,6 +488,33 @@ public class DBManager {
 			closeConnection();
 			return dto;
 		} catch (SQLException e) {
+			e.printStackTrace();
+			closeConnection();
+			return null;
+		}
+	}
+	
+	
+	public ReservationDTO getReservation(int reserve_code) {
+		String sql = String.format("select * from reservation where reserve_code = %d",reserve_code);
+		rs = executeSelect("Reservation", sql);
+		try {
+			if(rs.next()) {
+				Date reserve_date = rs.getDate(1);
+				Date checkin_date = rs.getDate(2);
+				Date checkout_date = rs.getDate(3);
+				int price = rs.getInt(4);
+				String id = rs.getString(5);
+				int code = rs.getInt(6);
+				int review = rs.getInt(7);
+				ReservationDTO dto = new ReservationDTO(reserve_date, checkin_date, checkout_date, price, id, code,
+						review, reserve_code);
+				closeConnection();
+				return dto;
+			}
+			else
+				throw new SQLException();
+		}catch(SQLException e){
 			e.printStackTrace();
 			closeConnection();
 			return null;
@@ -1054,7 +1082,7 @@ public class DBManager {
 	}
 
 	private float getRate(int code) {
-		String sql = String.format("select rate from reservation where code = %d and rate != null and rate != 0", code);
+		String sql = String.format("select review from reservation where code = %d", code);
 		try {
 			float count = (float) 0.0;
 			rs = executeSelect("Rate", sql);
@@ -1074,11 +1102,11 @@ public class DBManager {
 	
 	private boolean closeConnection() {
 		try {
-			if(!conn.isClosed())
+			if(conn != null && !conn.isClosed())
 				conn.close();
-			if(!pstmt.isClosed())
+			if(pstmt != null && !pstmt.isClosed())
 				pstmt.close();
-			if(!rs.isClosed())
+			if(rs != null && !rs.isClosed())
 				rs.close();
 			return true;
 		} catch (Exception e) {

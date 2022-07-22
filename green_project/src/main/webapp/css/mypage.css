@@ -1,36 +1,241 @@
 @charset "UTF-8";
 
-.sec_wrap{
-	display : flex;
-
+.sec_wrap {
+	display: flex;
 }
 
-.menu{
-	border-right : 1px solid #000000;
-	min-width : 150px;
+.menu {
+	border-right: 1px solid #000000;
+	min-width: 150px;
 }
 
-.menu li{
-	min-height : 40px;
-	margin : 5px 0;
-	padding : 10px 0;
-	transition : 0.5s;
-	cursor : pointer;
+.menu li {
+	min-height: 40px;
+	margin: 5px 0;
+	padding: 10px 0;
+	cursor: pointer;
+	background-color: white;
+	transition: 0.9s;
 }
 
-.menu li:hover{
-	transition : 0.5s;
-	background : linear-gradient(to right,white ,#dddddd,#cfcfcf);
+.menu li:hover {
+	transition: 0.9s;
+	background: linear-gradient(to right, white, #f9dede, #f9bfbf, white);
 }
 
-.contents{
-	
-}
-
-#reservation_list{
+#reservation_list {
 	width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0% 0% 5% 0%;
-    border: 1px solid #eee;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: 0% 0% 5% 0%;
+	border: 1px solid #eee;
+}
+
+.title {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.select {
+	font-size: 15px;
+}
+
+.req {
+	width: 100%;
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	margin: 8px 0;
+	outline: none;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: .3s;
+}
+
+.injng {
+	width: 100%;
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	margin: 8px 0;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: .3s;
+}
+
+.in {
+	background-color: #ff5f2e;
+	width: 100%;
+	border: 2px solid rgb(255, 128, 0);
+	border-radius: 4px;
+	margin: 8px 0;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: .3s;
+}
+
+.mod {
+	width: 100%;
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	margin: 8px 0;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: .3s;
+}
+
+.back {
+	width: 100%;
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	margin: 8px 0;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: .3s;
+}
+
+.req:focus {
+	border-color: dodgerBlue;
+	box-shadow: 0 0 8px 0 dodgetBlue;
+}
+
+.warning {
+	display: none;
+	color: red;
+	font-size: 0.8em;
+}
+
+button {
+	margin: 20px;
+}
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 15px 30px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-red {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.del {
+	width: 100%;
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	margin: 8px 0;
+	padding: 8px;
+	box-sizing: border-box;
+	background-color: #ef5f5f54;
+	transition: .3s;
+}
+
+.con {
+	padding: 0 0 0 30%;
+	width: max-content;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="email"]
+	{
+	box-shadow: 1.5px 1.5px #d9d9d9;
+}
+
+.item_rate {
+	text-align: left;
+}
+
+.item_name {
+	font-size: 1.64em;
+	line-height: 1.6;
+	font-weight: 600;
+	letter-spacing: -0.05em;
+	cursor: pointer;
+}
+
+.list li {
+	display: flex;
+	border-top: 1px solid #dadada;
+	border-bottom: 1px solid #dadada;
+	padding: 20px;
+}
+
+.img_wrap {
+	display: block;
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+	box-shadow: 2px 2px 10px rgb(0 0 0/ 20%);
+	position: relative;
+}
+
+#contents {
+	width: 100%;
+}
+
+.img_wrap img {
+	display: block;
+	width: auto;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.item_wrap {
+	flex-grow: 1;
+	padding-left: 40px;
+	line-height: 1.6;
+}
+
+.pointer {
+	display: flex;
+}
+
+.bold_text {
+	font-weight: 600;
+}
+
+.review{
+	padding : 0 0 0 40px;
+}
+
+#myform fieldset {
+	display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+	border: 0; /* 필드셋 테두리 제거 */
+}
+
+#myform input[type=radio] {
+	display: none; /* 라디오박스 감춤 */
+}
+
+#myform label {
+	font-size: 1em; /* 이모지 크기 */
+	color: transparent; /* 기존 이모지 컬러 제거 */
+	text-shadow: 0 0 0 #d8d8d8; /* 새 이모지 색상 부여 */
+}
+
+#myform label:hover {
+	text-shadow: 0 0 0 #f4ff00; /* 마우스 호버 */
+}
+
+#myform label:hover ~ label {
+	text-shadow: 0 0 0 #f4ff00; /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+#myform fieldset {
+	display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+	direction: rtl; /* 이모지 순서 반전 */
+	border: 0; /* 필드셋 테두리 제거 */
+}
+
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #f4ff00; /* 마우스 클릭 체크 */
 }

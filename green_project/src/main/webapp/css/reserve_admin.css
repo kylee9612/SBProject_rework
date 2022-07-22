@@ -38,6 +38,7 @@ label{
 	display: flex;
 	padding: 16px;
 	white-space: nowrap;
+	min-height : 60px;
 }
 
 .reservationInfo {

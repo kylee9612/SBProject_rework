@@ -22,7 +22,6 @@ public class LikeListDAO {
 	}
 	
 	private DBManager dbm = new DBManager(); 
-	private ArrayList<LikeListDTO> list;
 	
 	/**********************************************************************************************/
 	
@@ -37,17 +36,26 @@ public class LikeListDAO {
 	}
 	
 	public ArrayList<LikeListDTO> getLikeList(String id){
-		return list=dbm.getLikeList(id);
+		return dbm.getLikeList(id);
 	}
 	
 	public ArrayList<ItemDTO> getLikeListItem(String id){
-		this.list=dbm.getLikeList(id);
+		ArrayList <LikeListDTO> list=  dbm.getLikeList(id);
 		ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
 		for(LikeListDTO like : list) {
 			ItemDTO item = dbm.getItem(like.getCode());
 			itemList.add(item);
 		}
 		return itemList;
+	}
+	
+	public boolean isLiked(String id, int code) {
+		ArrayList<LikeListDTO> list = getLikeList(id);
+		for(LikeListDTO i : list) {
+			if(i.getCode()==code)
+				return true;
+		}
+		return false;
 	}
 	
 	
