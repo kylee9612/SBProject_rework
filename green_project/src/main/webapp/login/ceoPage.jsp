@@ -60,8 +60,6 @@
 						<li class="del"> <a href="/green_project/ServicesServlet?command=deleteItem&id=<%=log%>&code=<%=reserList.get(i).getCode()%>"><img class="cancel_img" src="/green_project/resources/garbagecan.png" width = 20px></a></li>
 					</ul>
 				</li>
-
-
 				<%} %>
 			</ul>
 			<%}%>

@@ -468,7 +468,7 @@ public class DBManager {
 		String sql = String.format("Update reservation set review = %d where reserve_code = %d",review,code);
 		executeAddtion("Reservation", sql);
 		ReservationDTO rsrv = getReservation(code);
-		float rate = getRate(code);
+		float rate = getRate(rsrv.getCode());
 		String updateSQL = String.format("update item set rate = %.2f where code = %d", rate, rsrv.getCode());
 		return executeUpdate("Rate ", updateSQL);
 	}
@@ -1082,17 +1082,18 @@ public class DBManager {
 	}
 
 	private float getRate(int code) {
-		String sql = String.format("select review from reservation where code = %d", code);
+		String sql = String.format("select review from reservation where code = %d and review != 0", code);
 		try {
 			float count = (float) 0.0;
 			rs = executeSelect("Rate", sql);
 			float sum = 0;
 			while (rs.next()) {
+				int num = rs.getInt(1);
 				count++;
-				sum += rs.getInt(1);
+				sum +=num;
 			}
 			closeConnection();
-			return sum / count;
+			return count == 0 ? 0 : sum/count;	
 		} catch (SQLException e) {
 			e.printStackTrace();
 			closeConnection();

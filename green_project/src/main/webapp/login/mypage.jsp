@@ -141,9 +141,7 @@ if(<%=initialPage%> !== null){
 			    <input type = "hidden" name = "command" value = "updateUser">
 			        <div class="contents">
 			        <span>아이디</span><br> 
-
 						<input class="req" type="text" name="id" value=<%=dao.getLog()%> readonly>
-
 			            <span>비밀번호</span><br>
 			            <input class="req" type="text" value="" name="pw" required="required"><br>
 			            <span>이름</span><br> 
@@ -239,13 +237,13 @@ if(<%=initialPage%> !== null){
 						<p class="check_date"><%=r.getCheckin_date()%></p>
 						<p class="check_date"><%=r.getCheckout_date()%></p>
 						<p class="star">
-						<form name="myform" id='myform<%=r.getReservationCode()%>' method="post" action="" onclick = "submitReview(<%=r.getReservationCode()%>)">
+						<form name="myform" id='myform<%=r.getReservationCode()%>' class = "myform" method="post" action="" onclick ="radioChange(<%=r.getReservationCode()%>)">
 					    <fieldset>
-					        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
-					        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
+					        <input type="radio" name="rating" value="5" id="rate5"><label for="rate1">⭐</label>
+					        <input type="radio" name="rating" value="4" id="rate4"><label for="rate2">⭐</label>
 					        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-					        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
-					        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
+					        <input type="radio" name="rating" value="2" id="rate2"><label for="rate4">⭐</label>
+					        <input type="radio" name="rating" value="1" id="rate1"><label for="rate5">⭐</label>
 					    </fieldset>
 					</form>
 						<%
@@ -261,14 +259,13 @@ if(<%=initialPage%> !== null){
 		form.submit();
 	}
 	
-	function submitReview(code){
-		const form = $("#myform"+code);
-		console.log(form.val());
-		let rate = form.val();
+	function radioChange(code){
+		let selected = document.querySelector('input[name="rating"]:checked').value;
+		console.log(selected);
 		$.ajax({
 			method: 'post',
-			url: `/green_project/ServicesServlet?command=review&code=`+code`&rate=`+rate
-		})
+			url: `/green_project/ServicesServlet?command=review&code=`+code+`&rate=`+selected
+		});
 	}
 </script>
 
