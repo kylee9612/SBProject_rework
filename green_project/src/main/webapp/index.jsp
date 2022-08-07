@@ -208,7 +208,7 @@
 						<li><a href="./noticeView?no=<%=board.getNo()%>"><span
 								class="notice_title">[공지] <%=board.getTitle()%></span><span
 								class="notice_date"><%=board.getWritten()%></span></a></li>
-						<%
+						<%	
 						}
 						%>
 					</ul>

@@ -9,8 +9,8 @@ input[type="checkbox"] {
 input[type="checkbox"]+label {
 	opacity: .4;
 	display: block;
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	background-image:
 		url('https://static.vecteezy.com/system/resources/thumbnails/001/188/194/small/heart.png');
 	background-position: center center;
@@ -23,8 +23,8 @@ input[type="checkbox"]+label {
 input[type="checkbox"]:checked+label {
 	opacity: 1;
 	display: block;
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	background-image:
 		url('https://static.vecteezy.com/system/resources/thumbnails/001/188/194/small/heart.png');
 	background-position: center center;
