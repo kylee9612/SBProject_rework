@@ -216,7 +216,6 @@
 			</div> 
 			
 		</div>
-
 		<!-- top button -->
 		<button class="topBtn">top</button>
 	</div>

@@ -57,19 +57,6 @@
 				style="width: 278px; height: 60px;" /></a><br>
 		<script src = "/green_project/js/snslogin.js"></script>
 
-				  <div id="naverIdLogin"></div>
-         <script type="text/javascript">
-      var naverLogin = new naver.LoginWithNaverId({
-        clientId: 'uAWhl5a1rFJ2UJ8hJgMH',
-        callbackUrl: 'http://localhost:8080/green_project/login/naver_callback.html',
-        isPopup: false /* 팝업을 통한 연동처리 여부 */,
-        loginButton: { color: 'green', type: 3, height: 60 } /* 로그인 버튼의 타입을 지정 */,
-      });
-      /* 설정정보를 초기화하고 연동을 준비 */
-      naverLogin.init();
-    </script>
-
-
         </div>
        </div>
    <%@ include file="/fix/footer.jsp" %>
