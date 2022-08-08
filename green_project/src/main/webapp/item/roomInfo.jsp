@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page import="model.ReservationDTO"%>
 <%@page import="controller.DBManager"%>
 <%@page import="model.LikeListDTO"%>
@@ -27,42 +28,35 @@
 			String county = request.getParameter("county");
 			int code = Integer.parseInt(request.getParameter("code"));
 			
+		
+			String checkInDate = request.getParameter("checkIn");
+			String checkOutDate = request.getParameter("checkOut");
+			
 			String id = dao.getLog();
-			
-			
-			//String like =request.getParameter("like");
-			
 			ItemDTO room = idao.getItem(code);
-			
-			
 			LikeListDAO likeDAO = LikeListDAO.getInstance();
 			
 			ArrayList<LikeListDTO> likeList = likeDAO.getLikeList(id);
 		%>
 		<div class="room_contents">
-			<div name="방사진">
-				<img alt="방 메인 사진" class="room_img" src="<%=room.getThumbnail()%>">
+			<div class="room_section">
+				<img class="room_img" src="<%=room.getThumbnail()%>">
 			</div>
 			<div class="info">
 				<div id = "room_info">
-					<span class="name" name="name" value="상호 : <%=room.getName()%>"><%=room.getName()%></span>
+					<label class = "name">숙소 명<span class="name"><%=room.getName()%></span></label>
 					<br> 
-					<span class="address" name="address" value="주소 : <%=room.getAddress()%>">주소 : <%=room.getAddress()%></span>
+					<label>주소 <span class="address"><%=room.getAddress()%></span></label>
 					<br> 
-					<span class="price" name="price" value="가격 : <%=room.getPrice()%>원">가격 : <%=room.getPrice()%>원
-					</span> <br> 
-					<span class="thumbnail" name="thumbnail"img="src='<%=room.getThumbnail()%>'" value="이미지 : <%=room.getThumbnail()%>">
-					</span> <br> 
-					<span class="content" name="content" value="소개 : <%=room.getContents()%>">소개 : <%=room.getContents()%></span>
+					<label>1박 요금<span class="price"><%=room.getPrice()%>원</span></label>
+					 <br> 
+					<label>소개 <span class="content"><%=room.getContents()%></span></label>
 					<br> 
-					<span class="max_people" name="max_people" value="인원 : <%=room.getMax_people()%>명">인원 : <%=room.getMax_people()%>명
-					</span>
+					<label>정원 <span class="max_people"><%=room.getMax_people()%>명</span></label>
 				</div>
 				<div id="roomListWrap">
-					<h4>객실 정보</h4>
-					<span>숙박 : 1박 <%=room.getPrice()%>원</span>
-					<h5>객실 제공 정보</h5>
-					<span><%=room.getContents()%></span>
+					<h4>예약 정보</h4>
+					<span>총 1박 <%=room.getPrice()%>원</span>
 					<form name=form method="post"
 						action="/green_project/ServicesServlet">
 						<input type="submit" value="예약하기">
@@ -70,6 +64,8 @@
 						<input type="hidden" name="code" value="<%=code%>"> 
 						<input type="hidden" name="address" value="<%=address%>">
 						<input type="hidden" name="id" value="<%=id%>">
+						<input type="hidden" name="checkIn" value ="<%=checkInDate.toString()%>">
+						<input type="hidden" name="checkOut" value ="<%=checkOutDate.toString()%>">
 					</form>
 					<%
 	        			if(id != null && !id.equals("null")){
@@ -81,23 +77,30 @@
 					<%
 	        		}
 	       			 %>
-					<h5>객실 후기</h5>
+					<h5>객실 후기 <%=room.getRate()%></h5>
+					<fieldset class = "fieldset">
 					<%
-	        		//ReservationDAO rdao = ReservationDAO.getInstance(); 
-	        		ArrayList<ReservationDTO> reviewList = rdao.getReviewList(code);
-					if(reviewList.size()<1){
-					%>
-					<span>현재 이용 후기가 없습니다.</span>
-					<%
-				}
-				for(ReservationDTO review : reviewList){
-					%>
-					<span>이용 기간 : <%=review.getCheckin_date()%>~ <%=review.getCheckout_date()%></span><br>
-					<span>평점 : <%=review.getReview()%></span><br> <span>이용
-						고객 : <%=review.getId()%></span><br>
-					<%
-				}
-	        %>
+					float rate = room.getRate();
+					for(int i = 0; i < 5; i++){
+						if(rate >= 1){
+							rate -= 1;
+							%>
+							<label class = "full_star star">★</label>
+							<%
+							continue;
+						}else if(rate >= 0.35){
+							rate = 0;
+							%>
+							<label class = "half_star star">★</label>
+							<%
+						}else{
+							%>
+							<label class = "empty_star star">★</label>
+							<%
+						}
+					}
+			        %>
+			        </fieldset>
 				</div>
 			</div>
 		</div>

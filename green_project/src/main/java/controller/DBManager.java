@@ -528,10 +528,12 @@ public class DBManager {
 		try {
 			getConnection();
 			pstmt = conn.prepareStatement(sql);
-			if (pstmt.execute()) {
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
 				closeConnection();
 				return false;
 			}
+			closeConnection();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

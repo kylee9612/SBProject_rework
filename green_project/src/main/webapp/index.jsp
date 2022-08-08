@@ -214,9 +214,7 @@
 					</ul>
 				</div>
 			</div> 
-			
 		</div>
-		<!-- top button -->
 		<button class="topBtn">top</button>
 	</div>
 	<script src="js/main.js"></script>

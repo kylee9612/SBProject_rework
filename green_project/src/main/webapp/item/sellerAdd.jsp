@@ -16,7 +16,7 @@
 	    <form id=form method="post" action="/green_project/ServicesServlet">
 	    	<input type="hidden" name="command" value="addItem">
 	        <div>
-	            <input type="hidden" name="id" value="admin">
+	            <input type="hidden" name="id" value="<%=dao.getLog()%>">
 	            <input class = "formInput" type="text" id="sample3_postcode" placeholder="우편번호" readonly required="required">
 				<input type="button" class = "addressBtn" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
 				<div id="address"></div>

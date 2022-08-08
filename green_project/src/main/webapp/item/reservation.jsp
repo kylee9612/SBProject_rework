@@ -11,11 +11,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/reserve.css">
 </head>
-<!-- jQuery -->
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<!-- iamport.payment.js -->
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <body>
@@ -23,79 +22,40 @@
 		<%
 		String address = request.getParameter("address");
 		int code = Integer.parseInt(request.getParameter("code"));
-		//int code=123456789;
 		ItemDTO room = idao.getItem(code);
 		String id = request.getParameter("id");
+		String checkInDate = request.getParameter("checkIn");
+		String checkOutDate = request.getParameter("checkOut");
 		%>
 
 
+		<p class = "header_text">예약 정보</p>
+		<div class="image_section">
+				<img class="room_img" src="<%=room.getThumbnail()%>">
+			</div>
 		<div>
-			방 정보 방 이름 :
-			<%=room.getName()%>
-		</div>
-		<div>
+			<label>숙소 명 : <%=room.getName()%></label>
 			<form action="/green_project/ServicesServlet" method="post">
 				<input type="hidden" value="reservation" name="command">
 				<input type="hidden" value="<%=code%>" name="code">
 				<input type="hidden" name="startDate" value="2022-07-21">
 				<input type="hidden" name="endDate" value="2022-07-21">
-				예약자 정보<br> 
-				예약자 ID : <span name="id" value="<%=id%>"><%=id%></span><br>
-				<h1>금액 및 할인 정보</h1>
-					총 예약 금액
-					<%=room.getPrice()%>원
-				<p>--------------------------------------</p>
-				
-					결제 금액
-				<div name="money" value="<%=room.getPrice()%>">원
-				</div>
+					<br> 
+					<label>예약자 ID : <%=dao.getLog()%></label><br>
+					<label>체크인 날짜 : <%=checkInDate%></label><br>
+					<label>체크아웃 날짜 : <%=checkOutDate%></label><br>
+					<label>총 결제 금액 : <input type ="text" value = "<%=room.getPrice()%>" readonly="readonly">원</label><br>
 				<input type="submit" value="무료 예약">
+				<button onclick="requestPay()">결제하기</button>
 			</form>
-		</div>
-
-		<div>
-			결제~
-			<button onclick="requestPay()">결제하기</button>
 		</div>
 			    <form name=form method="post" action="/green_project/ServicesServlet">
 		        	<input type="submit" value="뒤로가기">
 			        <input type="hidden" name="command" value="roomInfo">
 			        <input type="hidden" name="code" value="<%=code%>">
 			        <input type="hidden" name="address" value="<%=address%>">
-	        </form>
+	        	</form>
 	</div>
-
-
-	<!DOCTYPE html>
-<!-- 	
-<html>
-	<head>
-	</head> 
-	<body> 
-		<input type="button" id="naverPayBtn" value="네이버페이 결제 버튼"> 
-		
-		<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script> 
-		<script> 
-		//var oPay = Naver.Pay.create({ "mode" : "production", // development or production "clientId": "u86j4ripEt8LRfPGzQ8" // clientId }); 
-		// 직접 만든 네이버페이 결제 버튼에 click 이벤트를 할당하세요. 
-		// var elNaverPayBtn = document.getElementById("naverPayBtn"); 
-		// elNaverPayBtn.addEventListener("click", function() { 
-		//	oPay.open({ 
-		//	"merchantUserKey": "가맹점 사용자 식별키", 
-		//	"merchantPayKey": "가맹점 주문 번호", 
-		//	"productName": "상품명을 입력하세요", 
-		//	"totalPayAmount": "1000", 
-		//	"taxScopeAmount": "1000", 
-		//	"taxExScopeAmount": "0", 
-		//	"returnUrl": "사용자 결제 완료 후 결제 결과를 받을 URL" 
-		//	}); 
-		//}); 
-		//}
-		</script> 
-	</body> 
-</html>
- -->
-	
 	
 <script>
 function requestPay() {

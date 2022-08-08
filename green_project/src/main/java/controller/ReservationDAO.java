@@ -45,8 +45,9 @@ public class ReservationDAO {
 			return false;
 		}
 	}
-	private boolean checkValidId(String id, ReservationDTO reservation) {
-		return id.equals(reservation.getId());
+	
+	public boolean isValidDate(int code, Date checkIn, Date checkOut) {
+		return dbm.validToReseve(code, checkIn, checkOut);
 	}
 	
 	public boolean deleteReservation(int reserve_code) {
@@ -61,4 +62,8 @@ public class ReservationDAO {
 	}
 	
 	/**********************************************************************************************/
+	
+	private boolean checkValidId(String id, ReservationDTO reservation) {
+		return id.equals(reservation.getId());
+	}
 }

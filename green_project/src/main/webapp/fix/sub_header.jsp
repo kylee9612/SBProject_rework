@@ -26,6 +26,8 @@ pageEncoding="UTF-8"%>
 	BoardDAO bdao = BoardDAO.getInstance();
 	ReservationDAO rdao = ReservationDAO.getInstance();
 	LikeListDAO ldao = LikeListDAO.getInstance();
+	
+	System.out.println(dao.getLog());
 	%>
 	<header>
 		<div class="top_box normal_top">

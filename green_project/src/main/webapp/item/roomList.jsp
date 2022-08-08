@@ -1,3 +1,6 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.sql.Date"%>
 <%@page import="model.LikeListDTO"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.ItemDTO"%>
@@ -29,12 +32,15 @@
 <body>
 
 	<%
-	String date = request.getParameter("date");
+	String date[] = request.getParameter("date").split(" ~ ");
+	Date checkInDate = Date.valueOf(date[0]);
+	Date checkOutDate = Date.valueOf(date[1]);
 
 	int code = 0;
 	String city = request.getParameter("city");
 	String county = request.getParameter("county");
 	String address = city + "/" + county;
+	System.out.println(date);
 
 	if (city == null && county == null)
 		address = "전체/전체";
@@ -48,13 +54,11 @@
 	String id = dao.getLog();
 	String like = request.getParameter("like");
 	if (like != null) {
-
 		if (like.equals("yes")) {
 			roomList = LikeListDAO.getInstance().getLikeListItem(id);
 
 			city = "전체";
 			county = "전체";
-			date = "선택 안함";
 		}
 	}
 
@@ -112,6 +116,9 @@
 		<ul class="list">
 			<%
 			for (int i = 0; i < roomList.size(); i++) {
+				if(!rdao.isValidDate(code, checkInDate, checkOutDate)){
+					continue;
+				}
 				code = roomList.get(i).getCode();
 				String name = roomList.get(i).getName();
 				float rate = roomList.get(i).getRate();
@@ -120,8 +127,10 @@
 				String contents = roomList.get(i).getContents();
 			%>
 			<li>
-				<form id= "form<%=code%>" method="post" action="/green_project/ServicesServlet">
+				<form id="form<%=code%>" method="post" action="/green_project/ServicesServlet">
 					<div class="pointer">
+						<input type="hidden" name="checkIn" value ="<%=checkInDate.toString()%>">
+						<input type="hidden" name="checkOut" value ="<%=checkOutDate.toString()%>">
 						<input type="hidden" name="command" value="roomInfo"> <input
 							type="hidden" name="code" value="<%=code%>"> <input
 							type="hidden" name="city" value="<%=city%>"> <input

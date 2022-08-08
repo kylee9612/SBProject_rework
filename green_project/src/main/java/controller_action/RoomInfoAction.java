@@ -1,14 +1,12 @@
 package controller_action;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Action;
 import controller.ItemDAO;
-import model.ItemDTO;
 
 public class RoomInfoAction implements Action{
 
@@ -18,6 +16,8 @@ public class RoomInfoAction implements Action{
 		String city =request.getParameter("city");
 		String county = request.getParameter("county");
 		String address = request.getParameter("address");
+		String checkInDate = request.getParameter("checkIn");
+		String checkOutDate = request.getParameter("checkOut");
 		System.out.println("룸인포액션 코드 : "+code);
 		System.out.println("룸인포액션 city : "+city);
 		System.out.println("룸인포액션 county : "+county);
@@ -26,7 +26,7 @@ public class RoomInfoAction implements Action{
 		ItemDAO dao = ItemDAO.getInstance();
 		dao.addViewCount(code);
 		
-		String url="item/roomInfo.jsp?city="+city+"&county="+county+"&code="+code+"&address="+address;
+		String url="item/roomInfo.jsp?city="+city+"&county="+county+"&code="+code+"&address="+address+"&checkIn="+checkInDate+"&checkOut="+checkOutDate;
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		request.getRequestDispatcher(url).forward(request, response);
