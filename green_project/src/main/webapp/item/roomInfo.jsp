@@ -27,7 +27,7 @@
 			String city = request.getParameter("city");
 			String county = request.getParameter("county");
 			int code = Integer.parseInt(request.getParameter("code"));
-			
+			int days = Integer.parseInt(request.getParameter("days"));
 		
 			String checkInDate = request.getParameter("checkIn");
 			String checkOutDate = request.getParameter("checkOut");
@@ -56,11 +56,12 @@
 				</div>
 				<div id="roomListWrap">
 					<h4>예약 정보</h4>
-					<span>총 1박 <%=room.getPrice()%>원</span>
+					<span>총 <%=days%>박 <%=room.getPrice()*days%>원</span>
 					<form name=form method="post"
 						action="/green_project/ServicesServlet">
 						<input type="submit" value="예약하기">
 						<input type="hidden"name="command" value="reservation">
+						<input type="hidden" name="days" value="<%=days%>">
 						<input type="hidden" name="code" value="<%=code%>"> 
 						<input type="hidden" name="address" value="<%=address%>">
 						<input type="hidden" name="id" value="<%=id%>">

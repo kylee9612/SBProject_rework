@@ -26,6 +26,7 @@
 		String id = request.getParameter("id");
 		String checkInDate = request.getParameter("checkIn");
 		String checkOutDate = request.getParameter("checkOut");
+		int days = Integer.parseInt(request.getParameter("days"));
 		
 		if(dao.getLog()==null){
 			response.sendRedirect("/green_project/login");
@@ -56,7 +57,7 @@
 							<label><input type ="text" name = "id" value = "<%=dao.getLog()%>" readonly="readonly"></label><br>
 							<label><input type ="date" value = "<%=checkInDate%>" readonly="readonly"></label><br>
 							<label><input type ="date" value = "<%=checkOutDate%>" readonly="readonly"></label><br>
-							<label><input type ="text" name = "price" value = "<%=room.getPrice()%>원" readonly="readonly"></label><br>
+							<label><input type ="text" name = "price" value = "<%=room.getPrice()*days%>원" readonly="readonly"></label><br>
 						</div>
 						<br>
 					</div>
@@ -70,6 +71,7 @@
 			    <input type="hidden" name="command" value="roomInfo">
 			    <input type="hidden" name="code" value="<%=code%>">
 			    <input type="hidden" name="address" value="<%=address%>">
+			    <input type="hidden" name="days" value="<%=days%>">
 	        </form>
 	    </div>
 	</div>

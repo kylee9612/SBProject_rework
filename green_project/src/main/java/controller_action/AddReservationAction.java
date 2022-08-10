@@ -24,7 +24,6 @@ public class AddReservationAction implements Action{
 		String priceRaw = request.getParameter("price");
 		int price = Integer.parseInt(priceRaw.substring(0,priceRaw.length()-1));
 		ReservationDAO rDao = ReservationDAO.getInstance();
-
 		rDao.addNewReservation(id, code, price, checkIn, checkOut);
 		
 		response.sendRedirect("/green_project/login/mypage.jsp?page=reserve");

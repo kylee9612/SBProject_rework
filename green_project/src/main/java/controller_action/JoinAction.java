@@ -38,7 +38,6 @@ public class JoinAction implements Action{
 	    System.out.println(id);
 	    
 		if(dao.addUser(user)){
-			System.out.println("유저생성");
 			if(sns == 1) {
 				dao.setLog(id);
 				url="/green_project/index.jsp";	

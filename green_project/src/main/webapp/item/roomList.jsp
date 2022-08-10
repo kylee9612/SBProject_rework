@@ -35,6 +35,7 @@
 	String date[] = request.getParameter("date").split(" ~ ");
 	Date checkInDate = Date.valueOf(date[0]);
 	Date checkOutDate = Date.valueOf(date[1]);
+	long days = ((checkOutDate.getTime() - checkInDate.getTime())/1000)/(24*60*60);
 
 	int code = 0;
 	String city = request.getParameter("city");
@@ -129,6 +130,7 @@
 			<li>
 				<form id="form<%=code%>" method="post" action="/green_project/ServicesServlet">
 					<div class="pointer">
+						<input type="hidden" name = "days" value="<%=days%>">
 						<input type="hidden" name="checkIn" value ="<%=checkInDate.toString()%>">
 						<input type="hidden" name="checkOut" value ="<%=checkOutDate.toString()%>">
 						<input type="hidden" name="command" value="roomInfo"> <input
