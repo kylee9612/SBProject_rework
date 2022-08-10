@@ -22,8 +22,8 @@ public class ReservationDTO {
 	
 	public ReservationDTO (Date checkin_date, Date checkout_date, int price, String id, int code) {
 		Date reserve_date = new Date(System.currentTimeMillis());
-		SimpleDateFormat sim = new SimpleDateFormat("yyyy-mm-dd");
-		reserve_date = Date.valueOf(sim.format(reserve_date));
+//		SimpleDateFormat sim = new SimpleDateFormat("yyyy-mm-dd");
+//		reserve_date = Date.valueOf(sim.format(reserve_date));
 		this.reserve_date = reserve_date;
 		this.checkin_date = checkin_date;
 		this.checkout_date = checkout_date;

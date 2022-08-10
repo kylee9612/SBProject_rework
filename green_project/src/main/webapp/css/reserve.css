@@ -34,4 +34,30 @@ button{
     padding: 8px;
     box-sizing: border-box;
     transition: .3s;
+    cursor : pointer;
+}
+
+.reserve_info{
+	display : flex;
+	justify-content : center;
+	margin-bottom : 3%;
+}
+
+.room_name{
+	text-align : center;
+	margin: 2% 0 3% 0;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.sub_title{
+	width : 10em;
+}
+
+.sub_title p{
+	margin : 5% 0;
+}
+
+.sub_data input{
+	width : 9em;
 }

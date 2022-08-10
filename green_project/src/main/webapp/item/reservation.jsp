@@ -26,6 +26,10 @@
 		String id = request.getParameter("id");
 		String checkInDate = request.getParameter("checkIn");
 		String checkOutDate = request.getParameter("checkOut");
+		
+		if(dao.getLog()==null){
+			response.sendRedirect("/green_project/login");
+		}
 		%>
 
 
@@ -34,27 +38,40 @@
 				<img class="room_img" src="<%=room.getThumbnail()%>">
 			</div>
 		<div>
-			<label>숙소 명 : <%=room.getName()%></label>
-			<form action="/green_project/ServicesServlet" method="post">
-				<input type="hidden" value="reservation" name="command">
+			<form id="reserve" action="/green_project/ServicesServlet" method="post">
+				<input type="hidden" value="addReserve" name="command">
 				<input type="hidden" value="<%=code%>" name="code">
-				<input type="hidden" name="startDate" value="2022-07-21">
-				<input type="hidden" name="endDate" value="2022-07-21">
-					<br> 
-					<label>예약자 ID : <%=dao.getLog()%></label><br>
-					<label>체크인 날짜 : <%=checkInDate%></label><br>
-					<label>체크아웃 날짜 : <%=checkOutDate%></label><br>
-					<label>총 결제 금액 : <input type ="text" value = "<%=room.getPrice()%>" readonly="readonly">원</label><br>
-				<input type="submit" value="무료 예약">
-				<button onclick="requestPay()">결제하기</button>
+				<input type="hidden" name="checkIn" value="<%=checkInDate%>">
+				<input type="hidden" name="checkOut" value="<%=checkOutDate%>">
+					<br>
+					<p class = "room_name">숙소 명 : <%=room.getName()%></p>
+					<div class = "reserve_info">
+						<div class = "sub_title">
+							<p><label>예약자 ID </label></p>
+							<p><label>체크인 일정</label></p>
+							<p><label>체크아웃 일정</label></p>
+							<p><label>총 결제 금액</label></p>
+						</div>
+						<div class = "sub_data">
+							<label><input type ="text" name = "id" value = "<%=dao.getLog()%>" readonly="readonly"></label><br>
+							<label><input type ="date" value = "<%=checkInDate%>" readonly="readonly"></label><br>
+							<label><input type ="date" value = "<%=checkOutDate%>" readonly="readonly"></label><br>
+							<label><input type ="text" name = "price" value = "<%=room.getPrice()%>원" readonly="readonly"></label><br>
+						</div>
+						<br>
+					</div>
 			</form>
 		</div>
-			    <form name=form method="post" action="/green_project/ServicesServlet">
-		        	<input type="submit" value="뒤로가기">
-			        <input type="hidden" name="command" value="roomInfo">
-			        <input type="hidden" name="code" value="<%=code%>">
-			        <input type="hidden" name="address" value="<%=address%>">
-	        	</form>
+		<div style="text-align: center;">
+			<button onclick="submitForm('reserve')">무료 예약</button>
+			<button onclick="requestPay()">결제하기</button>
+		   	<button onclick="submitForm('back')">뒤로가기</button>
+			<form id = "back" name=form method="post" action="/green_project/ServicesServlet">
+			    <input type="hidden" name="command" value="roomInfo">
+			    <input type="hidden" name="code" value="<%=code%>">
+			    <input type="hidden" name="address" value="<%=address%>">
+	        </form>
+	    </div>
 	</div>
 	
 <script>
@@ -85,6 +102,10 @@ function requestPay() {
   });
 }
 
+function submitForm(data){
+	let form = document.getElementById(data);
+	form.submit();
+}
 
 </script>
 </body>

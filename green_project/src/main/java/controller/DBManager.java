@@ -544,12 +544,12 @@ public class DBManager {
 
 	public int getRandomReservationCode() {
 		int ranNum = ran.nextInt(999999999) + 1;
-		String sql = String.format("select reserve_code from reservation where reservation_code = %d", ranNum);
+		String sql = String.format("select reserve_code from reservation where reserve_code = %d", ranNum);
 		try {
 			rs = executeSelect("Reservation Code", sql);
 			while (rs.next()) {
 				ranNum = ran.nextInt(999999999) + 1;
-				sql = String.format("select reserve_code from reservation where reservation_code = %d", ranNum);
+				sql = String.format("select reserve_code from reservation where reserve_code = %d", ranNum);
 				rs = executeSelect("Reservation Code", sql);
 			}
 			closeConnection();
@@ -557,7 +557,7 @@ public class DBManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 			closeConnection();
-			return -1;
+			return ranNum;
 		}
 	}
 

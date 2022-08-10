@@ -49,9 +49,7 @@ String id = dao.getLog();
 			    <input type = "hidden" name = "command" value = "updateUser">
 			        <div class="contents">
 			        <span>아이디</span><br> 
-
 						<input class="req" type="text" name="id" value=<%=dao.getLog()%> readonly>
-
 			            <span>비밀번호</span><br>
 			            <input class="req" type="text" value="" name="pw" required="required"><br>
 			            <span>이름</span><br> 

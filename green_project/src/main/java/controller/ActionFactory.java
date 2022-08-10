@@ -19,6 +19,7 @@ import controller_action.RoomInfoAction;
 import controller_action.RoomListAction;
 import controller_action.WriteQuestionAction;
 import controller_action.AddItemAction;
+import controller_action.AddReservationAction;
 import controller_action.DelNoticeAction;
 import controller_action.LikeAction;
 import controller_action.UpdateAnnouncementAction;
@@ -89,7 +90,8 @@ public class ActionFactory {
 			action = new DeleteReservationAction();
 		else if(command.equals("review"))
 			action = new ReviewAction();
-  
+		else if(command.equals("addReserve"))
+			action = new AddReservationAction();
 		
 		return action;
 	}

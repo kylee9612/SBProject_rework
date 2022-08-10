@@ -21,8 +21,8 @@ public class ReservationDAO {
 	}
 	/**********************************************************************************************/
 	
-	public boolean addNewReservation(String id, int code,Date checkIn, Date checkOut) {
-		ReservationDTO rsrv = new ReservationDTO(checkIn, checkOut, code, id, dbm.getRandomReservationCode());
+	public boolean addNewReservation(String id, int code, int price, Date checkIn, Date checkOut) {
+		ReservationDTO rsrv = new ReservationDTO(checkIn, checkOut, price, id, code);
 		return dbm.addReservation(rsrv);
 	}
 	
