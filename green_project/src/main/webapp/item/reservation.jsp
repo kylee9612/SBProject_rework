@@ -40,7 +40,7 @@
 
 		<h3 class = "title_name" style = "display:none;">예약 정보</h3>
 		<div class="image_section" style = "width : 50%;">
-				<img class="room_img" style ="padding : 13% 0;"src="<%=room.getThumbnail()%>">
+				<img class="room_img" style ="padding : 13% 0; width : 100%"src="<%=room.getThumbnail()%>">
 			</div>
 			<form id = "back" name=form method="post" action="/green_project/ServicesServlet">
 			    <input type="hidden" name="command" value="roomInfo">
@@ -74,10 +74,10 @@
 						</div>
 						<br>
 					</div>
-		<div style="text-align: center;">
-			<button onclick="submitForm('reserve')">무료 예약</button>
-			<button onclick="requestPay()">결제하기</button>
-		   	<button onclick="submitForm('back')">뒤로가기</button>
+		<div class = "btn_tag">
+			<div id="reserve_btn" onclick="submitForm('reserve')">무료 예약</div>
+			<div id="pay_btn" onclick="requestPay()">결제하기</div>
+		   	<div id= "back_btn" onclick="submitForm('back')">뒤로가기</div>
 	    </div>
 			</form>
 		</div>
