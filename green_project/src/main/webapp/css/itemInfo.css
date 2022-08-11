@@ -16,7 +16,7 @@
 	width : 500px;
 	font-size : 20px;
 	font-weight : 600;
-}
+	}
 
 .room_contents{
 	display : flex;
@@ -28,6 +28,7 @@
 	margin : 0 40px;
 	box-shadow : 1px 1px 10px black;
 }
+
 
 .info{
 	display : flex;
@@ -52,7 +53,7 @@
 }
 
 .full_star{
-	text-shadow: 0 0 0 #f4ff00;
+	text-shadow: 0 0 0 #ffc800;
 }
 
 .half_star{

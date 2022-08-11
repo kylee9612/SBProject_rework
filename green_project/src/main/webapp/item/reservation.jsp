@@ -18,7 +18,7 @@
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <body>
-	<div id="wrap">
+	<div id="wrap" style="display:flex; ">
 		<%
 		String address = request.getParameter("address");
 		int code = Integer.parseInt(request.getParameter("code"));
@@ -29,23 +29,31 @@
 		int days = Integer.parseInt(request.getParameter("days"));
 		
 		if(dao.getLog()==null){
-			response.sendRedirect("/green_project/login");
+			%>
+			<script>
+			alert("로그인 후 이용해 주세요");
+			location.href = "/green_project/login";
+			</script>
+			<%
 		}
 		%>
 
-
-		<p class = "header_text">예약 정보</p>
-		<div class="image_section">
-				<img class="room_img" src="<%=room.getThumbnail()%>">
+		<h3 class = "title_name" style = "display:none;">예약 정보</h3>
+		<div class="image_section" style = "width : 50%;">
+				<img class="room_img" style ="padding : 13% 0;"src="<%=room.getThumbnail()%>">
 			</div>
-		<div>
+			<form id = "back" name=form method="post" action="/green_project/ServicesServlet">
+			    <input type="hidden" name="command" value="roomInfo">
+			    <input type="hidden" name="code" value="<%=code%>">
+			    <input type="hidden" name="address" value="<%=address%>">
+			    <input type="hidden" name="days" value="<%=days%>">
+	        </form>
+		<div style = "width : 50%;">
 			<form id="reserve" action="/green_project/ServicesServlet" method="post">
 				<input type="hidden" value="addReserve" name="command">
 				<input type="hidden" value="<%=code%>" name="code">
-				<input type="hidden" name="checkIn" value="<%=checkInDate%>">
-				<input type="hidden" name="checkOut" value="<%=checkOutDate%>">
 					<br>
-					<p class = "room_name">숙소 명 : <%=room.getName()%></p>
+					<p class = "room_name"><%=room.getName()%></p>
 					<div class = "reserve_info">
 						<div class = "sub_title">
 							<p><label>예약자 ID </label></p>
@@ -55,28 +63,40 @@
 						</div>
 						<div class = "sub_data">
 							<label><input type ="text" name = "id" value = "<%=dao.getLog()%>" readonly="readonly"></label><br>
-							<label><input type ="date" value = "<%=checkInDate%>" readonly="readonly"></label><br>
-							<label><input type ="date" value = "<%=checkOutDate%>" readonly="readonly"></label><br>
-							<label><input type ="text" name = "price" value = "<%=room.getPrice()*days%>원" readonly="readonly"></label><br>
+							<%if(days != 0){ %>
+							<label><input type ="date" id = "checkIn" name="checkIn" value = "<%=checkInDate%>" readonly="readonly"></label><br>
+							<label><input type ="date" id = "checkOut" name="checkOut"value = "<%=checkOutDate%>" readonly="readonly"></label><br>
+							<%}else{%>
+							<label><input type ="date" id = "checkIn" name="checkIn" value = "<%=checkInDate%>"></label><br>
+							<label><input type ="date" id = "checkOut" onblur="refreshPrice()" name="checkOut"value = "<%=checkOutDate%>"></label><br>
+							<%}%>
+							<label><input type ="text" id = "price" name = "price" value = "<%=room.getPrice()*days%>원" readonly="readonly"></label><br>
 						</div>
 						<br>
 					</div>
-			</form>
-		</div>
 		<div style="text-align: center;">
 			<button onclick="submitForm('reserve')">무료 예약</button>
 			<button onclick="requestPay()">결제하기</button>
 		   	<button onclick="submitForm('back')">뒤로가기</button>
-			<form id = "back" name=form method="post" action="/green_project/ServicesServlet">
-			    <input type="hidden" name="command" value="roomInfo">
-			    <input type="hidden" name="code" value="<%=code%>">
-			    <input type="hidden" name="address" value="<%=address%>">
-			    <input type="hidden" name="days" value="<%=days%>">
-	        </form>
 	    </div>
+			</form>
+		</div>
 	</div>
 	
 <script>
+
+const checkInTo = document.getElementById("checkIn");
+const checkOutTo = document.getElementById("checkOut");
+const priceTo = document.getElementById("price");	
+
+function refreshPrice(){
+	let checkIn = new Date(checkInTo.value);
+	let checkOut = new Date(checkOutTo.value);
+	
+	let dif = checkOut.getTime() - checkIn.getTime();
+	priceTo.value = (dif / (24*60*60*1000))*<%=room.getPrice()%>;
+}
+
 function requestPay() {
   IMP.init('iamport'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
   IMP.request_pay({

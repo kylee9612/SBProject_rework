@@ -27,7 +27,7 @@
 			String city = request.getParameter("city");
 			String county = request.getParameter("county");
 			int code = Integer.parseInt(request.getParameter("code"));
-			int days = Integer.parseInt(request.getParameter("days"));
+			int days = request.getParameter("days") == null ? 0 : Integer.parseInt(request.getParameter("days"));
 		
 			String checkInDate = request.getParameter("checkIn");
 			String checkOutDate = request.getParameter("checkOut");
@@ -65,8 +65,8 @@
 						<input type="hidden" name="code" value="<%=code%>"> 
 						<input type="hidden" name="address" value="<%=address%>">
 						<input type="hidden" name="id" value="<%=id%>">
-						<input type="hidden" name="checkIn" value ="<%=checkInDate.toString()%>">
-						<input type="hidden" name="checkOut" value ="<%=checkOutDate.toString()%>">
+						<input type="hidden" name="checkIn" value ="<%=checkInDate%>">
+						<input type="hidden" name="checkOut" value ="<%=checkOutDate%>">
 					</form>
 					<%
 	        			if(id != null && !id.equals("null")){

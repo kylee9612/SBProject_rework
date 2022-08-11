@@ -29,6 +29,11 @@ String id = dao.getLog();
 	UserDTO info = dao.getUser(dao.getLog());
 	ArrayList<ItemDTO> roomList = ldao.getLikeListItem(id);
 	if(dao.getLog()==null){
+		%>
+		<script>
+		alert("로그인 후 이용해 주세요");
+		</script>
+		<%
 		response.sendRedirect("/green_project/index.jsp");
 	}
 %>
@@ -39,7 +44,7 @@ String id = dao.getLog();
 			<ul>
 				<li onclick = 'changePage(`myInfo`)'><span >내 정보</span></li>
 				<li onclick = 'changePage(`likelist`)'><span>찜 목록</span></li>
-				<li onclick = 'changePage(`reservation`)'><span>예약 내역</span></li>
+				<li onclick = 'changePage(`reserve`)'><span>예약 내역</span></li>
 				<li onclick = 'changePage(`review`)'><span>리뷰를 달아주세요</span></li>
 			</ul>
 		</div>
@@ -78,18 +83,19 @@ String id = dao.getLog();
 		</div>
 	</div>
 </div>
+
 <script type="text/javascript">
 
-const page = "";
+let page = "";
 
-if(<%=initialPage%> !== null){
-	page = <%=initialPage%>;
+if("<%=initialPage%>" !== null){
+	page = "<%=initialPage%>";
 	console.log(page);
 	changePage(page);
 }
 
 	function changePage(page){
-		if(page === "reservation"){
+		if(page === "reserve"){
 			document.getElementById("contents").innerHTML = `<div class="content scroll_theme" id="reserve_list">
 			<%
 			if (reserList.size() == 0) {
@@ -237,11 +243,11 @@ if(<%=initialPage%> !== null){
 						<p class="star">
 						<form name="myform" id='myform<%=r.getReservationCode()%>' class = "myform" method="post" action="" onclick ="radioChange(<%=r.getReservationCode()%>)">
 					    <fieldset>
-					        <input type="radio" name="rating" value="5" id="rate5"><label for="rate1">⭐</label>
-					        <input type="radio" name="rating" value="4" id="rate4"><label for="rate2">⭐</label>
+					        <input type="radio" name="rating" value="1" id="rate5"><label for="rate1">⭐</label>
+					        <input type="radio" name="rating" value="2" id="rate4"><label for="rate2">⭐</label>
 					        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-					        <input type="radio" name="rating" value="2" id="rate2"><label for="rate4">⭐</label>
-					        <input type="radio" name="rating" value="1" id="rate1"><label for="rate5">⭐</label>
+					        <input type="radio" name="rating" value="4" id="rate2"><label for="rate4">⭐</label>
+					        <input type="radio" name="rating" value="5" id="rate1"><label for="rate5">⭐</label>
 					    </fieldset>
 					</form>
 						<%
@@ -262,7 +268,11 @@ if(<%=initialPage%> !== null){
 		console.log(selected);
 		$.ajax({
 			method: 'post',
-			url: `/green_project/ServicesServlet?command=review&code=`+code+`&rate=`+selected
+			url: `/green_project/ServicesServlet?command=review&code=`+code+`&rate=`+selected,
+			success :
+			function(e){
+				alert("리뷰를 남겼습니다~");	
+			}
 		});
 	}
 </script>

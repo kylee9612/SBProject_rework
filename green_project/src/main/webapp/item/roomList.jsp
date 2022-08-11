@@ -32,16 +32,19 @@
 <body>
 
 	<%
-	String date[] = request.getParameter("date").split(" ~ ");
-	Date checkInDate = Date.valueOf(date[0]);
-	Date checkOutDate = Date.valueOf(date[1]);
-	long days = ((checkOutDate.getTime() - checkInDate.getTime())/1000)/(24*60*60);
-
+	long days = 0;
+	Date checkInDate = new Date(System.currentTimeMillis());
+	Date checkOutDate = new Date(System.currentTimeMillis());
+	if(request.getParameter("date") != null){
+		String date[] = request.getParameter("date").split(" ~ ");
+		checkInDate = Date.valueOf(date[0]);
+		checkOutDate = Date.valueOf(date[1]);
+		days = date == null ? 0 : ((checkOutDate.getTime() - checkInDate.getTime())/1000)/(24*60*60);
+	}
 	int code = 0;
 	String city = request.getParameter("city");
 	String county = request.getParameter("county");
 	String address = city + "/" + county;
-	System.out.println(date);
 
 	if (city == null && county == null)
 		address = "전체/전체";
