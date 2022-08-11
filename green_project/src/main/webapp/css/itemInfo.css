@@ -25,6 +25,7 @@
 }
 
 .room_img{
+	width: 90%;
 	margin : 0 40px;
 	box-shadow : 1px 1px 10px black;
 }
@@ -72,13 +73,32 @@ input[type="submit"]{
     padding: 8px;
     box-sizing: border-box;
     transition: .3s;
+    height : 15%;
+}
+
+#side_tabs{
+	display : flex;
+	align-items: center;
 }
 
 #room_info label{
 	font-size : 20px;
 	font-weight : 600;
+	color : #8f8f8f;
 }
+
 
 label span{
 	font-weight : 500;
+	color : black;
+}
+
+p textarea{
+	width: 20em;
+    height: 8em;
+    border: none;
+    font-size: 1em;
+    margin: 5% 0px;
+    resize : none;
+    font-weight : 600;
 }
