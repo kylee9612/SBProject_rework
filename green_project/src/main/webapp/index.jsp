@@ -33,7 +33,6 @@
 <!-- 파비콘 -->
 <link rel="shortcut icon" href="">
 
-<!-- 미리보기 -->
 <meta property="og:title" content="SB Project">
 <meta property="og:description"
 	content="숙박업소의 실시간 특가를 SB Project에서 한 눈에 비교하세요.">
