@@ -26,8 +26,6 @@
 	<h3 class="title_name">숙소 관리 페이지</h3>
 	<input type="hidden" name="command" value="join">
 	<div class="contents">
-
-		<h4>등록현황</h4>
 		<br>
 		<div class="content scroll_theme" id="reservation_list">
 			<%if(reserList.size() == 0){ 
@@ -39,7 +37,7 @@
 				<label class="room_name" for="room_name">숙소 이름</label> <label
 					class="code" for="code">코드</label> <label class="viewCut"
 					for="viewCut">조회수</label> <label class="likeCut" for="likeCut">좋아요</label>
-				<label class="category" for="category">카데고리</label> <label
+				<label class="category" for="category">카테고리</label> <label
 					class="price" for="price">가격</label> <label class="del" for="del">버튼</label>
 			</div>
 

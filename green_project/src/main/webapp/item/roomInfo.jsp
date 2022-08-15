@@ -27,7 +27,7 @@
 			String city = request.getParameter("city");
 			String county = request.getParameter("county");
 			int code = Integer.parseInt(request.getParameter("code"));
-			int days = Integer.parseInt(request.getParameter("days"));
+			int days = request.getParameter("days") == null ? 0 : Integer.parseInt(request.getParameter("days"));
 		
 			String checkInDate = request.getParameter("checkIn");
 			String checkOutDate = request.getParameter("checkOut");
@@ -49,15 +49,9 @@
 					<label>주소 <span class="address"><%=room.getAddress()%></span></label>
 					<br> 
 					<label>1박 요금<span class="price"><%=room.getPrice()%>원</span></label>
-					 <br> 
-					<label>소개 <span class="content"><%=room.getContents()%></span></label>
-					<br> 
+					 <br>  
 					<label>정원 <span class="max_people"><%=room.getMax_people()%>명</span></label>
-				</div>
-				<div id="roomListWrap">
-					<h4>예약 정보</h4>
-					<span>총 <%=days%>박 <%=room.getPrice()*days%>원</span>
-					<form name=form method="post"
+					<form id ="side_tabs" name=form method="post"
 						action="/green_project/ServicesServlet">
 						<input type="submit" value="예약하기">
 						<input type="hidden"name="command" value="reservation">
@@ -65,19 +59,24 @@
 						<input type="hidden" name="code" value="<%=code%>"> 
 						<input type="hidden" name="address" value="<%=address%>">
 						<input type="hidden" name="id" value="<%=id%>">
-						<input type="hidden" name="checkIn" value ="<%=checkInDate.toString()%>">
-						<input type="hidden" name="checkOut" value ="<%=checkOutDate.toString()%>">
-					</form>
-					<%
+						<input type="hidden" name="checkIn" value ="<%=checkInDate%>">
+						<input type="hidden" name="checkOut" value ="<%=checkOutDate%>">
+						<%
 	        			if(id != null && !id.equals("null")){
 	        		%>
-					<div class="heart_wrap">
+					<div class="heart_wrap" style = "margin-left : 15%;">
 						<input type="checkbox" name="heart" id="heart"> <label
 							for="heart"></label>
 					</div>
 					<%
 	        		}
 	       			 %>
+					</form>
+				</div>
+				<div id="roomListWrap">
+					<label style ="color : #8f8f8f;">소개</label><br>
+					<p><textarea class="content"><%=room.getContents()%></textarea><p>	
+					
 					<h5>객실 후기 <%=room.getRate()%></h5>
 					<fieldset class = "fieldset">
 					<%
@@ -107,10 +106,8 @@
 		</div>
 	</div>
 	<%
-	System.out.println("룸 인포 방 코드 : "+code);
 	String value = "false";
 	for(LikeListDTO likeDTO : likeList){
-		System.out.println("룸인포 라이크 리스트 : "+likeDTO.getCode());
 		if(likeDTO.getCode()==code){ %>
 		<script>
 			$('#heart').prop('checked', true);

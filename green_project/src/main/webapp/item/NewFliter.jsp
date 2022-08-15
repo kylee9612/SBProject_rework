@@ -47,7 +47,6 @@
 	
 	        <input type="text" class="date">
 	        <input type="number" max="5" placeholder="인원" class="inwon">
-	        <!--  <input type="button" onclick="location.href='../ServicesServlet'" value="검색"> -->
 	        <input type="submit" value="검색"class=search>
 	    </form> 
     </div>
@@ -76,10 +75,10 @@
                 console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
             });
         });
+        
         //https://www.daterangepicker.com/
         //https://wooncloud.tistory.com/26
-    </script>
-    <script language='javascript'>
+        
         var cnt = new Array();
         cnt[0] = new Array('전체');
         cnt[1] = new Array('전체','강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
