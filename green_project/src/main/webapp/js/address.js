@@ -61,6 +61,6 @@
         let county = document.body.querySelector(".select");
         
         function get(){
-            console.log(city.value+'/'+county.value);
+            console.log(city.value+' '+county.value);
         }
         

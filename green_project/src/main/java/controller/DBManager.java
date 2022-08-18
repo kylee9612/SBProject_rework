@@ -278,9 +278,10 @@ public class DBManager {
 	
 	public ArrayList<ItemDTO> getItemList(String address, Date checkIn, Date checkOut){
 		ArrayList<ItemDTO> list = new ArrayList<>();
-		String sql = String.format("select code from item i where address = '%s' and code not in (select code from reservation where code = i.code and checkin_date between '%s' and '%s' and checkout_date between '%s' and '%s')",address,checkIn,checkOut,checkIn,checkOut);
+		String sql = "select code from item i where address like '%"+address+"%' and code not in (select code from reservation where code = i.code and checkin_date between '"+checkIn+"' and '"+checkOut+"' and checkout_date between '"+checkIn+"' and '"+checkOut+"')";
 		try {
-			ResultSet tempRs = executeSelect("Item List", sql);
+			System.out.println(sql);
+			ResultSet tempRs = executeSelect("item code", sql);
 			while (tempRs.next()) {
 				list.add(getItem(tempRs.getInt(1)));
 			}
@@ -343,7 +344,7 @@ public class DBManager {
 	}
 
 	public ArrayList<ItemDTO> getItemList(String address) {
-		String add[] = address.split("/");
+		String add[] = address.split(" ");
 
 		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();
 		String sql = "select code from item where address like '%" + add[0] + "%" + add[1] + "%'";

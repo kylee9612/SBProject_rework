@@ -18,7 +18,7 @@ public class RoomListAction implements Action {
 
 		String city =request.getParameter("city");
 		String county = request.getParameter("county");
-		String address = city+"/"+county;
+		String address = city+" "+county;
 		
 		if(city==null && county==null)
 			address="전체/전체";
