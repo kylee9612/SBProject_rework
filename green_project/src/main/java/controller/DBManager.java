@@ -260,7 +260,7 @@ public class DBManager {
 	}
 	public ArrayList<ItemDTO> getItemList(Date checkIn, Date checkOut){
 		ArrayList<ItemDTO> list = new ArrayList<>();
-		String sql = String.format("select code from item i where code in (select code from reservation where code = i.code and checkin_date not between '%s' and '%s')",checkIn,checkOut);
+		String sql = String.format("select code from item i where code not in (select code from reservation where code = i.code and checkin_date between '%s' and '%s' and checkout_date between '%s' and '%s')",checkIn,checkOut,checkIn,checkOut);
 		System.out.println(sql);
 		try {
 			ResultSet tempRs = executeSelect("Item List", sql);
@@ -278,7 +278,7 @@ public class DBManager {
 	
 	public ArrayList<ItemDTO> getItemList(String address, Date checkIn, Date checkOut){
 		ArrayList<ItemDTO> list = new ArrayList<>();
-		String sql = String.format("select code from item i where address = '%s' and code in (select code from reservation where code = i.code and checkin_date not between '%s' and '%s')",address,checkIn,checkOut);
+		String sql = String.format("select code from item i where address = '%s' and code not in (select code from reservation where code = i.code and checkin_date between '%s' and '%s' and checkout_date between '%s' and '%s')",address,checkIn,checkOut,checkIn,checkOut);
 		try {
 			ResultSet tempRs = executeSelect("Item List", sql);
 			while (tempRs.next()) {
