@@ -52,8 +52,14 @@
 		address = request.getParameter("address");
 
 	ArrayList<ItemDTO> roomList = idao.getItemList(address);
-	if (address.equals("전체/전체"))
+	if (address.equals("전체/전체") && checkInDate == checkOutDate)
 		roomList = idao.getItemList();
+	else if(address.equals("전체/전체") && checkInDate != checkOutDate){
+		roomList = idao.getItemList(checkInDate,checkOutDate);
+	}
+	else{
+		roomList = idao.getItemList(address,checkInDate,checkOutDate);
+	}
 	
 	String id = dao.getLog();
 	String like = request.getParameter("like");

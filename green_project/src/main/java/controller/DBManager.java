@@ -258,6 +258,40 @@ public class DBManager {
 			return null;
 		}
 	}
+	public ArrayList<ItemDTO> getItemList(Date checkIn, Date checkOut){
+		ArrayList<ItemDTO> list = new ArrayList<>();
+		String sql = String.format("select code from item i where code in (select code from reservation where code = i.code and checkin_date not between '%s' and '%s')",checkIn,checkOut);
+		System.out.println(sql);
+		try {
+			ResultSet tempRs = executeSelect("Item List", sql);
+			while (tempRs.next()) {
+				list.add(getItem(tempRs.getInt(1)));
+			}
+			closeConnection();
+			tempRs.close();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public ArrayList<ItemDTO> getItemList(String address, Date checkIn, Date checkOut){
+		ArrayList<ItemDTO> list = new ArrayList<>();
+		String sql = String.format("select code from item i where address = '%s' and code in (select code from reservation where code = i.code and checkin_date not between '%s' and '%s')",address,checkIn,checkOut);
+		try {
+			ResultSet tempRs = executeSelect("Item List", sql);
+			while (tempRs.next()) {
+				list.add(getItem(tempRs.getInt(1)));
+			}
+			closeConnection();
+			tempRs.close();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public ArrayList<ItemDTO> getItemList(String id, String address) {
 		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();

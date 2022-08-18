@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import model.ItemDTO;
@@ -33,6 +34,16 @@ public class ItemDAO {
 		ArrayList<ItemDTO> itemList = dbm.getItemList(address);
 		return itemList;
 	}
+	
+	public ArrayList<ItemDTO> getItemList(Date checkIn, Date checkOut){
+		return dbm.getItemList(checkIn,checkOut);
+	}
+	
+	public ArrayList<ItemDTO> getItemList(String address, Date checkIn, Date checkOut){
+		ArrayList<ItemDTO> itemList = dbm.getItemList(address,checkIn, checkOut);
+		return itemList;
+	}
+	
 	public ArrayList<ItemDTO> getItemLists(String id){
 		ArrayList<ItemDTO> itemLists = dbm.getItemLists(id);
 		return itemLists;
