@@ -31,8 +31,8 @@
 		if(dao.getLog()==null){
 			%>
 			<script>
-			alert("로그인 후 이용해 주세요");
-			location.href = "/green_project/login";
+				alert("로그인 후 이용해 주세요");
+				location.href = "/green_project/login";
 			</script>
 			<%
 		}

@@ -208,6 +208,10 @@ public class DBManager {
 	}
 
 	public boolean deleteItem(ItemDTO item) {
+		String fSql = String.format("delete from reservation where code = %d", item.getCode());
+		executeDeletion("Reservation",fSql);
+		fSql = String.format("delete from like_list where code = %d", item.getCode());
+		executeDeletion("Like List",fSql);
 		String sql = String.format("delete from item where code = %d", item.getCode());
 		return executeDeletion("Item", sql);
 	}

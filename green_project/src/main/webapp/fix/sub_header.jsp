@@ -36,7 +36,13 @@ pageEncoding="UTF-8"%>
 			</h1>
 			<nav id="gnb">
 				<ul>
+					<%
+					if(dao.getLog()== null || dao.getAuth(dao.getLog()) == 2){
+					%>
                     <li><a href="/green_project/roomList?city=전체&county=전체&id=<%=log%>">숙박예약</a></li>
+                    <%
+					}
+                    %>
 						<li><a href="/green_project/qaboard/qaboard.jsp">고객센터</a></li>
 						<%
 						if (dao.getLog() != null) {
@@ -45,7 +51,7 @@ pageEncoding="UTF-8"%>
 
 						<%
 						if (dao.getAuth(dao.getLog()) == 1){ %>
-						<li><a href="/green_project/login/ceoPage.jsp">마이페이지</a></li>
+						<li><a href="/green_project/login/ceoPage.jsp">숙소 관리</a></li>
 						<%}else if (dao.getAuth(dao.getLog()) == 2){%>
 						<li><a href="/green_project/login/mypage.jsp">마이페이지</a></li>
 						<%}%>

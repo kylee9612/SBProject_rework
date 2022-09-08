@@ -27,12 +27,12 @@
 	<input type="hidden" name="command" value="join">
 	<div class="contents">
 		<br>
-		<div class="content scroll_theme" id="reservation_list">
-			<%if(reserList.size() == 0){ 
-        	 %>
-			<p>예약 정보가 없습니다</p>
-			<%
+		<%if(reserList.size() == 0){ 
+        %>
+		<p>등록된 숙소가 없습니다.</p>
+		<%
          }else{%>
+		<div class="content scroll_theme" id="reservation_list">
 			<div class="tit_wrap">
 				<label class="room_name" for="room_name">숙소 이름</label> <label
 					class="code" for="code">코드</label> <label class="viewCut"
@@ -46,10 +46,10 @@
  			for (int i = 0; i < reserList.size(); i++) {
  				ItemDTO item = idao.getItem(reserList.get(i).getCode());
  			%>
-				<li style = "cursor : pointer;" onclick = "location.href = '/green_project/item/roomInfo.jsp?code=<%=reserList.get(i).getCode()%>'">
+				<li style = "cursor : pointer;">
 					<ul class="item_wrap">
-						<li class="room_name"><%=item.getName()%></li>
-						<li class="code"><%=reserList.get(i).getCode()%></li>
+						<li class="room_name" onclick = "location.href = '/green_project/item/roomInfo.jsp?code=<%=reserList.get(i).getCode()%>'"><%=item.getName()%></li>
+						<li class="code" onclick = "location.href = '/green_project/item/roomInfo.jsp?code=<%=reserList.get(i).getCode()%>'"><%=reserList.get(i).getCode()%></li>
 						<li class="viewCut"><%=reserList.get(i).getView_count()%></li>
 						<li class="likeCut"><%=reserList.get(i).getLike_count()%></li>
 						<li class="category"><%=reserList.get(i).getCategory()%></li>

@@ -92,6 +92,9 @@ if("<%=initialPage%>" !== null){
 	page = "<%=initialPage%>";
 	console.log(page);
 	changePage(page);
+	if(page === "reserve"){
+		alert("예약되었습니다")
+	}
 }
 
 	function changePage(page){
